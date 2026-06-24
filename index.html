@@ -10,20 +10,24 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    /* paleta: preto · verde · branco */
+    /* paleta: preto · azul (água) · branco */
     --paper:#ffffff;
-    --paper-2:#eef1ec;
-    --ink:#0b0f0b;
-    --ink-soft:#454c45;
-    --green:#176c45;
-    --green-deep:#0d4a30;
-    --green-bright:#2c9162;
-    --green-glow:#5cd494;
-    /* aliases legados mapeados para o verde */
-    --orange:var(--green);
-    --orange-deep:var(--green-deep);
-    --teal:var(--green-deep);
-    --teal-bright:var(--green-bright);
+    --paper-2:#eceff3;
+    --ink:#0b0f14;
+    --ink-soft:#454d57;
+    --blue:#15639c;
+    --blue-deep:#0c3f63;
+    --blue-bright:#2f86c2;
+    --blue-glow:#5cc3f0;
+    /* aliases legados (green, orange, teal) agora apontam para o azul */
+    --green:var(--blue);
+    --green-deep:var(--blue-deep);
+    --green-bright:var(--blue-bright);
+    --green-glow:var(--blue-glow);
+    --orange:var(--blue);
+    --orange-deep:var(--blue-deep);
+    --teal:var(--blue-deep);
+    --teal-bright:var(--blue-bright);
     --line:rgba(11,15,11,.14);
     --line-strong:rgba(11,15,11,.28);
     --display:'Archivo',sans-serif;
@@ -62,8 +66,8 @@
   .navlinks a:hover{color:var(--ink)}
   .navlinks a:hover::after{width:100%}
   .btn{display:inline-flex;align-items:center;gap:9px;font-family:var(--body);font-weight:600;font-size:.92rem;text-decoration:none;padding:13px 26px;border-radius:4px;cursor:pointer;border:none;transition:transform .25s cubic-bezier(.2,.7,.3,1),box-shadow .25s}
-  .btn-primary{background:var(--green);color:#fff;box-shadow:0 12px 26px -12px rgba(13,74,48,.7)}
-  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 18px 34px -14px rgba(13,74,48,.8)}
+  .btn-primary{background:var(--green);color:#fff;box-shadow:0 12px 26px -12px rgba(12,63,99,.7)}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 18px 34px -14px rgba(12,63,99,.8)}
   .btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--line-strong)}
   .btn-ghost:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
   .nav-cta{display:flex;gap:14px;align-items:center}
@@ -82,7 +86,7 @@
   .hero-cta{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
   /* prancha emoldurada com o rio 3D */
   .hero-panel{position:relative;border:1px solid var(--ink);background:var(--paper-2);padding:6px;box-shadow:0 30px 60px -30px rgba(11,15,11,.3)}
-  .hero-panel .inner{position:relative;border:1px solid var(--line-strong);overflow:hidden;aspect-ratio:4/4.4;background:linear-gradient(180deg,#eef2ec,#dde3db)}
+  .hero-panel .inner{position:relative;border:1px solid var(--line-strong);overflow:hidden;aspect-ratio:4/4.4;background:linear-gradient(180deg,#eef1f6,#dbe0e8)}
   .hero-3d{position:absolute;inset:0;z-index:1}
   .hero-3d canvas{display:block;width:100%;height:100%}
   .panel-corner{position:absolute;width:14px;height:14px;border:1.5px solid var(--green);z-index:3}
@@ -171,8 +175,8 @@
   .field input,.field select,.field textarea{width:100%;font-family:var(--body);font-size:1rem;padding:12px 14px;border:1.5px solid var(--line-strong);background:var(--paper-2);color:var(--ink);border-radius:2px;transition:border-color .2s}
   .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--orange)}
   .field textarea{resize:vertical;min-height:90px}
-  form .btn-primary{width:100%;justify-content:center;box-shadow:0 12px 26px -12px rgba(13,74,48,.7)}
-  form .btn-primary:hover{box-shadow:0 18px 34px -14px rgba(13,74,48,.8)}
+  form .btn-primary{width:100%;justify-content:center;box-shadow:0 12px 26px -12px rgba(12,63,99,.7)}
+  form .btn-primary:hover{box-shadow:0 18px 34px -14px rgba(12,63,99,.8)}
 
   /* footer */
   footer{background:var(--ink);color:var(--paper);padding:64px 0 30px}
@@ -264,9 +268,9 @@
       <div class="brand">
         <svg class="mark" viewBox="0 0 40 40" fill="none">
           <rect x="1.5" y="1.5" width="37" height="37" stroke="#0b0f0b" stroke-width="2"/>
-          <path d="M6 30 L20 8 L34 30" stroke="#176c45" stroke-width="2.4" fill="none"/>
+          <path d="M6 30 L20 8 L34 30" stroke="#15639c" stroke-width="2.4" fill="none"/>
           <circle cx="20" cy="8" r="2.6" fill="#0b0f0b"/>
-          <path d="M6 34 L34 34" stroke="#0d4a30" stroke-width="2.4"/>
+          <path d="M6 34 L34 34" stroke="#0c3f63" stroke-width="2.4"/>
         </svg>
         Survey
       </div>
@@ -338,7 +342,7 @@
 
     <div class="split rv">
       <div class="svc topo">
-        <svg class="svc-bg" viewBox="0 0 200 200" fill="none" stroke="#176c45" stroke-width="2">
+        <svg class="svc-bg" viewBox="0 0 200 200" fill="none" stroke="#15639c" stroke-width="2">
           <path d="M20 160 C70 120 80 80 50 50"/><path d="M50 175 C110 130 120 70 90 35"/><path d="M90 185 C150 140 160 60 130 25"/>
         </svg>
         <span class="tag">A · Topografia & Geo</span>
@@ -353,7 +357,7 @@
         </ul>
       </div>
       <div class="svc hidro">
-        <svg class="svc-bg" viewBox="0 0 200 200" fill="none" stroke="#0d4a30" stroke-width="2">
+        <svg class="svc-bg" viewBox="0 0 200 200" fill="none" stroke="#0c3f63" stroke-width="2">
           <path d="M10 60 Q50 40 90 60 T170 60"/><path d="M10 100 Q50 80 90 100 T170 100"/><path d="M10 140 Q50 120 90 140 T170 140"/>
         </svg>
         <span class="tag">B · Hidrometria & Hidrologia</span>
@@ -391,7 +395,7 @@
 
 <style>
   .river{background:var(--paper-2);border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);overflow:hidden}
-  .river-stage{position:relative;border:1px solid var(--ink);background:linear-gradient(#eff3ee,#e2e8e0);box-shadow:0 30px 60px -28px rgba(11,15,11,.3)}
+  .river-stage{position:relative;border:1px solid var(--ink);background:linear-gradient(#eef2f6,#e0e6ec);box-shadow:0 30px 60px -28px rgba(11,15,11,.3)}
   .river-svg{display:block;width:100%;height:auto}
   .river-readout{position:absolute;top:18px;right:18px;z-index:3;display:flex;flex-direction:column;gap:10px;align-items:flex-end}
   .ro-card{background:rgba(255,255,255,.94);border:1px solid var(--line-strong);padding:9px 15px;min-width:138px;box-shadow:0 10px 24px -12px rgba(11,15,11,.16)}
@@ -442,8 +446,8 @@
             <path d="M0 0 L0 170 C 120 175 180 200 240 250 C 300 300 320 360 360 375 C 440 392 500 392 560 378 C 610 365 640 300 690 250 C 740 205 800 180 900 158 L900 0 Z"/>
           </clipPath>
           <linearGradient id="waterGrad" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="#2bbd6e"/>
-            <stop offset="1" stop-color="#0c3a22"/>
+            <stop offset="0" stop-color="#2f9fd6"/>
+            <stop offset="1" stop-color="#0a3550"/>
           </linearGradient>
         </defs>
 
@@ -455,20 +459,20 @@
 
         <!-- água (duas camadas) -->
         <g clip-path="url(#voidClip)">
-          <path data-water-back fill="#176c45" opacity=".5"></path>
+          <path data-water-back fill="#15639c" opacity=".5"></path>
           <path data-water-front fill="url(#waterGrad)"></path>
-          <path data-water-shine fill="none" stroke="#d4f3e0" stroke-width="2" opacity=".75"></path>
+          <path data-water-shine fill="none" stroke="#d4ecf8" stroke-width="2" opacity=".75"></path>
           <g data-bubbles></g>
         </g>
 
         <!-- terreno / margens -->
         <path d="M0 170 C 120 175 180 200 240 250 C 300 300 320 360 360 375 C 440 392 500 392 560 378 C 610 365 640 300 690 250 C 740 205 800 180 900 158 L900 480 L0 480 Z"
-              fill="#c8cfc4" stroke="#0b0f0b" stroke-width="2.2"/>
+              fill="#c6ccd2" stroke="#0b0f0b" stroke-width="2.2"/>
         <path d="M0 170 C 120 175 180 200 240 250 C 300 300 320 360 360 375 C 440 392 500 392 560 378 C 610 365 640 300 690 250 C 740 205 800 180 900 158"
               fill="none" stroke="#8b948a" stroke-width="1.2" opacity=".7" transform="translate(0,9)"/>
 
         <!-- vegetação simples nas margens -->
-        <g stroke="#176c45" stroke-width="2.4" stroke-linecap="round">
+        <g stroke="#15639c" stroke-width="2.4" stroke-linecap="round">
           <path d="M70 168 L70 150"/><path d="M82 169 L82 154"/><path d="M58 169 L58 156"/>
           <path d="M830 162 L830 144"/><path d="M844 161 L844 148"/><path d="M818 164 L818 150"/>
         </g>
@@ -478,9 +482,9 @@
           <rect x="118" y="225" width="20" height="195" fill="#ffffff" stroke="#0b0f0b" stroke-width="2"/>
           <g stroke="#0b0f0b" stroke-width="1.4" data-ticks></g>
           <g data-ticklabels fill="#454c45" font-size="10"></g>
-          <polygon data-marker points="0,0 16,-9 16,9" fill="#176c45"/>
-          <line data-level-line x1="138" y1="0" x2="780" y2="0" stroke="#176c45" stroke-width="1.4" stroke-dasharray="5 6" opacity=".85"/>
-          <text data-marker-label x="150" y="0" fill="#0d4a30" font-size="12" font-weight="700"></text>
+          <polygon data-marker points="0,0 16,-9 16,9" fill="#15639c"/>
+          <line data-level-line x1="138" y1="0" x2="780" y2="0" stroke="#15639c" stroke-width="1.4" stroke-dasharray="5 6" opacity=".85"/>
+          <text data-marker-label x="150" y="0" fill="#0c3f63" font-size="12" font-weight="700"></text>
         </g>
       </svg>
 
@@ -599,9 +603,9 @@
         <div class="foot-brand">
           <svg class="mark" viewBox="0 0 40 40" fill="none" width="32" height="32">
             <rect x="1.5" y="1.5" width="37" height="37" stroke="#f5f7f4" stroke-width="2"/>
-            <path d="M6 30 L20 8 L34 30" stroke="#2c9162" stroke-width="2.4" fill="none"/>
+            <path d="M6 30 L20 8 L34 30" stroke="#2f86c2" stroke-width="2.4" fill="none"/>
             <circle cx="20" cy="8" r="2.6" fill="#f5f7f4"/>
-            <path d="M6 34 L34 34" stroke="#176c45" stroke-width="2.4"/>
+            <path d="M6 34 L34 34" stroke="#15639c" stroke-width="2.4"/>
           </svg>
           Survey
         </div>
@@ -637,7 +641,7 @@
     ev.preventDefault();
     const btn=ev.target.querySelector('button');
     btn.textContent='Solicitação enviada ✓';
-    btn.style.background='#0d4a30';
+    btn.style.background='#0c3f63';
     setTimeout(()=>{ev.target.reset();btn.textContent='Enviar solicitação →';btn.style.background='';},2600);
     return false;
   }
@@ -823,7 +827,7 @@
   const bubbles = [];
   for(let i=0;i<7;i++){
     const c = document.createElementNS('http://www.w3.org/2000/svg','circle');
-    c.setAttribute('fill','#d4f3e0'); c.setAttribute('opacity','.5');
+    c.setAttribute('fill','#d4ecf8'); c.setAttribute('opacity','.5');
     bubblesG.appendChild(c);
     const b = { el:c, x:280+Math.random()*340, y:400, r:1.5+Math.random()*2.5, sp:.25+Math.random()*.5, off:Math.random()*6 };
     bubbles.push(b);
@@ -886,11 +890,11 @@
   // ---- timeline mestre: enchendo -> cheio -> esvaziando ----
   const tl = gsap.timeline({ repeat:-1, paused:true, defaults:{ ease:'sine.inOut' } });
   tl.to(S, { level:0.95, duration:4.2, ease:'power1.in',
-             onStart:()=>setPhase('enchendo ▲', '#176c45') })
+             onStart:()=>setPhase('enchendo ▲', '#15639c') })
     .to(S, { amp:10, duration:1.0 }, '<')
-    .to({}, { duration:1.1, onStart:()=>setPhase('cheia · pico de vazão', '#0d4a30') })
+    .to({}, { duration:1.1, onStart:()=>setPhase('cheia · pico de vazão', '#0c3f63') })
     .to(S, { level:0.05, duration:5.0, ease:'power1.inOut',
-             onStart:()=>setPhase('esvaziando ▼', '#2c9162') })
+             onStart:()=>setPhase('esvaziando ▼', '#2f86c2') })
     .to(S, { amp:6, duration:1.0 }, '<')
     .to({}, { duration:0.9, onStart:()=>setPhase('estiagem · medindo…', '#6b756a') });
 
@@ -965,7 +969,7 @@
     renderer.toneMappingExposure = 1.0;
 
     const scene = new THREE.Scene();
-    const BG = new THREE.Color('#e6eae4');
+    const BG = new THREE.Color('#e7ebf1');
     scene.fog = new THREE.Fog(BG, 12, 38);
 
     const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
@@ -981,7 +985,7 @@
     // terreno / vale (malha leve)
     const tGeo = new THREE.PlaneGeometry(34, 56, 48, 48); tGeo.rotateX(-Math.PI/2);
     const tp = tGeo.attributes.position, col=[];
-    const cLow=new THREE.Color('#cdd3c8'), cMid=new THREE.Color('#8f9a87'), cHigh=new THREE.Color('#33513c');
+    const cLow=new THREE.Color('#cbd0d6'), cMid=new THREE.Color('#828c98'), cHigh=new THREE.Color('#34505f');
     const half=3.2;
     for(let i=0;i<tp.count;i++){
       const x=tp.getX(i), z=tp.getZ(i), ax=Math.abs(x);
@@ -998,8 +1002,8 @@
 
     // água (shader leve)
     const uniforms = {
-      uTime:{value:0}, uDeep:{value:new THREE.Color('#0c4742')}, uShallow:{value:new THREE.Color('#2f9a8e')},
-      uSky:{value:new THREE.Color('#cfdcd6')}, uSun:{value:sunDir}, uSunColor:{value:new THREE.Color('#fff3d6')},
+      uTime:{value:0}, uDeep:{value:new THREE.Color('#0a3a5a')}, uShallow:{value:new THREE.Color('#2a86c0')},
+      uSky:{value:new THREE.Color('#cfd9e2')}, uSun:{value:sunDir}, uSunColor:{value:new THREE.Color('#eaf3ff')},
       fogColor:{value:BG}, fogNear:{value:12}, fogFar:{value:38}
     };
     const wglsl = W.map((w,i)=>`float ph${i}=(p.x*${w.dx.toFixed(4)}+p.y*${w.dz.toFixed(4)})*${w.f}+uTime*${w.s};
