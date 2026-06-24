@@ -1,0 +1,11 @@
+node_modules/
+.vercel/
+.vercelignore
+.claude/
+src/
+package.json
+package-lock.json
+server-8123.log
+server-8123.err.log
+server-8123.pid
+index.html.bak
