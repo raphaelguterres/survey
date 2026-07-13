@@ -174,3 +174,120 @@ html[data-theme="dark"] body{color:#eef5ff;background:linear-gradient(180deg,#08
     bottom: 14px;
   }
 }
+/* Mobile layout refinement */
+@media (max-width: 680px) {
+  .hero-grid {
+    width: var(--wrap);
+    padding: 38px 0 36px;
+    gap: 22px;
+  }
+
+  .hero h1 {
+    font-size: clamp(2rem, 10.5vw, 2.8rem);
+    line-height: 1.04;
+    letter-spacing: -0.035em;
+  }
+
+  .hero-copy {
+    max-width: 32rem;
+    font-size: .96rem;
+    line-height: 1.55;
+    margin-top: 16px;
+  }
+
+  .hero-actions {
+    width: 100%;
+    gap: 8px;
+    margin-top: 22px;
+  }
+
+  .hero-actions .btn {
+    height: 46px;
+    min-width: 0;
+    font-size: .73rem;
+  }
+
+  .photo-stack {
+    gap: 10px;
+  }
+
+  .photo-card,
+  .photo-card:not(:first-child) {
+    height: 164px;
+    min-height: 164px;
+  }
+
+  .photo-card:first-child {
+    height: 218px;
+    min-height: 218px;
+  }
+
+  .photo-card span {
+    left: 14px;
+    right: 14px;
+    bottom: 13px;
+    font-size: .8rem;
+  }
+
+  .section {
+    padding: 50px 0;
+  }
+
+  .section-title {
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+
+  .section-title h2 {
+    font-size: clamp(1.8rem, 8.8vw, 2.5rem);
+  }
+
+  .service-list {
+    padding: 8px 0;
+  }
+
+  .service-list a {
+    padding: 8px 14px;
+    font-size: .75rem;
+  }
+
+  .activities {
+    gap: 10px;
+  }
+
+  .activities li {
+    min-height: 74px;
+    padding: 14px 42px 14px 58px;
+  }
+
+  .activities li::before {
+    left: 16px;
+    top: 18px;
+  }
+
+  .activities li::after {
+    right: 13px;
+  }
+
+  .card {
+    padding: 18px;
+  }
+
+  form {
+    padding: 18px;
+  }
+
+  .contact-card {
+    padding: 20px;
+  }
+
+  .whatsapp {
+    width: 52px;
+    height: 52px;
+  }
+
+  .whatsapp svg {
+    width: 28px;
+    height: 28px;
+  }
+}
