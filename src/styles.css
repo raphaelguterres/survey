@@ -291,3 +291,62 @@ html[data-theme="dark"] body{color:#eef5ff;background:linear-gradient(180deg,#08
     height: 28px;
   }
 }
+/* Compact mobile composition: preserve the desktop visual hierarchy */
+@media (max-width: 680px) {
+  .hero-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+    padding: 0 10px;
+    font-size: .68rem;
+    letter-spacing: .015em;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 680px) {
+  .hero-grid {
+    padding-top: 32px;
+    padding-bottom: 30px;
+    gap: 18px;
+  }
+
+  .hero h1 {
+    font-size: clamp(2rem, 8.5vw, 2.8rem);
+  }
+
+  .hero-copy {
+    max-width: 31rem;
+    font-size: .9rem;
+    line-height: 1.5;
+  }
+
+  .photo-stack {
+    height: 368px;
+    grid-template-columns: minmax(0, 1.08fr) minmax(112px, .92fr);
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .photo-card,
+  .photo-card:first-child,
+  .photo-card:not(:first-child) {
+    grid-row: auto;
+    height: auto;
+    min-height: 0;
+  }
+
+  .photo-card:first-child {
+    grid-row: 1 / -1;
+  }
+
+  .photo-card span {
+    left: 11px;
+    right: 11px;
+    bottom: 10px;
+    font-size: .68rem;
+  }
+}
