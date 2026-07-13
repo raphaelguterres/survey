@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Survey logo preview</title>
+  <style>
+    :root {
+      --blue: #006fb9;
+      --line: #d8e2e7;
+      --ink: #113142;
+      --bg: #f4f8fb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+    }
+    main {
+      width: min(1040px, calc(100% - 32px));
+      margin: 40px auto;
+      display: grid;
+      gap: 18px;
+    }
+    h1 {
+      margin: 0 0 6px;
+      font-size: 22px;
+      font-weight: 750;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 18px;
+    }
+    .panel {
+      display: grid;
+      align-content: center;
+      min-height: 220px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      background: white;
+    }
+    .panel.blue { background: var(--blue); }
+    .panel img {
+      display: block;
+      width: 100%;
+      max-height: 130px;
+      object-fit: contain;
+    }
+    .symbol img {
+      width: 150px;
+      margin: 0 auto;
+    }
+    span {
+      display: block;
+      margin-bottom: 14px;
+      color: #5e7580;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .02em;
+      text-transform: uppercase;
+    }
+    .blue span { color: white; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Survey - rota F</h1>
+    <div class="grid">
+      <section class="panel">
+        <span>Logo positivo</span>
+        <img src="./survey-logo-f.svg" alt="Survey logo positivo">
+      </section>
+      <section class="panel blue">
+        <span>Logo negativo</span>
+        <img src="./survey-logo-f-negative.svg" alt="Survey logo negativo">
+      </section>
+      <section class="panel symbol">
+        <span>Simbolo</span>
+        <img src="./survey-symbol-f.svg" alt="Simbolo Survey">
+      </section>
+    </div>
+  </main>
+</body>
+</html>

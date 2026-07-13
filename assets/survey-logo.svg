@@ -1,0 +1,13 @@
+﻿<svg width="520" height="170" viewBox="0 0 520 170" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Survey Topografia e Hidrometria</title>
+  <desc id="desc">Logo Survey com subtitulo Topografia e Hidrometria.</desc>
+  <defs>
+    <linearGradient id="surveyText" x1="70" y1="0" x2="430" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#050807"/>
+      <stop offset="0.62" stop-color="#121514"/>
+      <stop offset="1" stop-color="#8a8e8d"/>
+    </linearGradient>
+  </defs>
+  <text x="260" y="92" text-anchor="middle" fill="url(#surveyText)" font-family="Arial Black, Arial, Helvetica, sans-serif" font-size="62" font-weight="900" letter-spacing="-2">SURVEY</text>
+  <text x="260" y="123" text-anchor="middle" fill="#171b1a" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" letter-spacing="-0.6">TOPOGRAFIA | HIDROMETRIA</text>
+</svg>
