@@ -106,3 +106,71 @@ html[data-theme="dark"] body{color:#eef5ff;background:linear-gradient(180deg,#08
     .service-menu a{color:#fff}
   }
   @media(max-width:680px){.hero-grid{min-height:auto}}
+/* Mobile stability and performance */
+@media (max-width: 680px) {
+  .activity-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 22px;
+  }
+
+  .service-list,
+  .activities,
+  .activity-layout,
+  .contact-grid,
+  .hero-grid,
+  .photo-stack {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .activities {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .activities li {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .activities li span:first-child {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .photo-stack {
+    height: auto;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .photo-card,
+  .photo-card:first-child,
+  .photo-card:not(:first-child) {
+    grid-row: auto;
+    height: 190px;
+    min-height: 190px;
+  }
+
+  .photo-card:first-child {
+    height: 250px;
+  }
+
+  .photo-card:not(:first-child):hover {
+    transform: none;
+  }
+
+  .hero::before {
+    transform: none;
+    filter: saturate(1.04) contrast(1.01);
+  }
+
+  .hero-glow,
+  .river-flow-svg {
+    opacity: .04;
+  }
+
+  .whatsapp {
+    right: 14px;
+    bottom: 14px;
+  }
+}
