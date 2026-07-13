@@ -1,4 +1,14 @@
 {
+  "name": "survey-hydro",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Landing institucional da Survey Hydro.",
+  "scripts": {
+    "build": "npm run build:hero && npm run build:motion",
+    "build:hero": "esbuild src/hero3d.js --bundle --format=esm --target=es2020 --outfile=assets/hero3d.js --minify",
+    "build:motion": "esbuild src/motion-enhancements.jsx --bundle --format=iife --target=es2020 --jsx=automatic --outfile=assets/motion-enhancements.js --minify",
+    "dev": "python -m http.server 4174"
+  },
   "dependencies": {
     "@react-spring/web": "^10.1.2",
     "@react-three/fiber": "^8.15.19",
@@ -7,10 +17,6 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "three": "^0.160.0"
-  },
-  "scripts": {
-    "build:hero": "esbuild src/hero3d.js --bundle --format=esm --target=es2020 --outfile=assets/hero3d.js --minify",
-    "build:motion": "esbuild src/motion-enhancements.jsx --bundle --format=iife --target=es2020 --jsx=automatic --outfile=assets/motion-enhancements.js --minify"
   },
   "devDependencies": {
     "esbuild": "^0.21.5"
