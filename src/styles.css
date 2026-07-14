@@ -490,3 +490,16 @@ input:focus, select:focus, textarea:focus { border-color: #46b7ff; box-shadow: 0
   .whatsapp, .whatsapp::before, .hero-grid > .rv.in > *, .tech-chip, .scroll-cue { animation: none !important; transition-duration: .01ms !important; }
   .scroll-cue { opacity: 1 !important; transform: none !important; }
 }
+/* Cards de atividades: visual limpo, sem ícones decorativos */
+.activities li::after,
+.activities summary::after {
+  display: none;
+  content: none;
+}
+.activities summary {
+  padding-right: 0;
+}
+.activities details[open] {
+  border-left: 0;
+  padding-left: 0;
+}

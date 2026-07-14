@@ -107,3 +107,10 @@ status: publicado
 - O círculo preto sobre “Ver atividades” não pertence ao site: é o elemento `vercel-live-feedback`, widget automático de feedback da Vercel em deployments de preview (`z-index: 2147483647`).
 - A publicação de produção foi escolhida para validação final sem esse overlay de preview.
 - Evidência visual: screenshot capturado no preview e inspeção DOM via `document.elementsFromPoint`.
+## Cards clean sem ícones (2026-07-14)
+
+- Removidos o `+` do accordion e a seta decorativa dos cards de atividades.
+- Removido o recuo/painel lateral ao abrir o conteúdo, mantendo o texto expansível acessível.
+- Hover preservado apenas com borda e sombra discretas.
+- Testes atualizados para proteger o visual sem ícones.
+- Validação: lint, typecheck, 5/5 testes e build aprovados.
