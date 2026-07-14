@@ -432,3 +432,61 @@ html[data-theme="dark"] .activities details p { color: #aabbd0; }
   .hero { background: var(--paper); }
   html[data-theme="dark"] .hero { background: #05070b; }
 }
+
+/* Fase 2 — mobile visual life: low-cost motion tokens and field-data details */
+:root {
+  --motion-fast: 160ms;
+  --motion-base: 280ms;
+  --motion-slow: 520ms;
+  --motion-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --motion-ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --motion-distance-sm: 8px;
+  --motion-distance-md: 18px;
+  --motion-scale-press: .98;
+}
+.hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; color: #62b8ff; font-size: .68rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+.hero-eyebrow::before { content: ''; width: 22px; height: 1px; background: currentColor; }
+.tech-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+.tech-chip { display: inline-flex; align-items: center; gap: 7px; min-height: 30px; padding: 6px 10px; border: 1px solid rgba(98,184,255,.28); border-radius: 999px; background: rgba(7,27,74,.46); color: #dcecff; font-size: .68rem; line-height: 1.15; transition: transform var(--motion-fast) var(--motion-ease-out), border-color var(--motion-fast) ease, background-color var(--motion-fast) ease; }
+.tech-chip i { color: #62b8ff; font-style: normal; font-size: .9rem; }
+.scroll-cue { display: inline-flex; align-items: center; gap: 9px; margin-top: 26px; color: #9cb2cc; font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; transition: opacity var(--motion-base) ease, transform var(--motion-base) var(--motion-ease-out); }
+.scroll-cue span { color: #62b8ff; font-variant-numeric: tabular-nums; }
+.scroll-cue b { color: #62b8ff; font-size: 1rem; font-weight: 400; }
+.scroll-cue.is-hidden { opacity: 0; transform: translateY(6px); pointer-events: none; }
+.hero-actions .btn span { display: inline-block; margin-left: 8px; transition: transform var(--motion-fast) var(--motion-ease-out); }
+.card, .activities li, .client { position: relative; overflow: hidden; }
+.card::before, .activities li::before, .client::before { content: ''; position: absolute; inset: 0 0 auto; height: 2px; background: linear-gradient(90deg, #46b7ff, transparent); opacity: .7; pointer-events: none; }
+.card:active, .activities li:active, .client:active, .tech-chip:active { transform: scale(var(--motion-scale-press)); }
+.activities details[open] { border-left: 2px solid #46b7ff; padding-left: 12px; }
+.activities details[open] summary::after { content: '\2212'; transform: rotate(180deg); }
+.activities summary::after { transition: transform var(--motion-fast) var(--motion-ease-out), color var(--motion-fast) ease; }
+input:focus, select:focus, textarea:focus { border-color: #46b7ff; box-shadow: 0 0 0 3px rgba(70,183,255,.14); }
+.submit { transition: transform var(--motion-fast) var(--motion-ease-out), background-color var(--motion-fast) ease, opacity var(--motion-fast) ease; }
+.submit:active, .btn:active { transform: scale(var(--motion-scale-press)); }
+.whatsapp { animation: whatsapp-in 520ms var(--motion-ease-out) 700ms both; }
+.whatsapp::before { content: ''; position: absolute; inset: -7px; border: 1px solid rgba(37,211,102,.55); border-radius: inherit; animation: whatsapp-ring 900ms var(--motion-ease-out) 900ms both; pointer-events: none; }
+@keyframes whatsapp-in { from { opacity: 0; transform: translateY(12px) scale(.94); } to { opacity: 1; transform: none; } }
+@keyframes whatsapp-ring { from { opacity: .9; transform: scale(.82); } to { opacity: 0; transform: scale(1.18); } }
+@media (max-width: 767px) {
+  .hero-grid > .rv.in > .hero-eyebrow { animation: mobile-rise 520ms var(--motion-ease-out) both; }
+  .hero-grid > .rv.in > h1 { animation: mobile-rise 560ms var(--motion-ease-out) 60ms both; }
+  .hero-grid > .rv.in > .hero-copy { animation: mobile-rise 560ms var(--motion-ease-out) 120ms both; }
+  .hero-grid > .rv.in > .hero-actions { animation: mobile-rise 560ms var(--motion-ease-out) 180ms both; }
+  .hero-grid > .rv.in > .tech-chips { animation: mobile-rise 560ms var(--motion-ease-out) 240ms both; }
+  .hero-eyebrow { margin-bottom: 12px; }
+  .hero h1 { text-wrap: balance; }
+  .tech-chips { gap: 7px; margin-top: 18px; }
+  .tech-chip { min-height: 32px; padding: 7px 9px; font-size: .66rem; }
+  .scroll-cue { margin-top: 20px; }
+  .hero-actions .btn { justify-content: space-between; padding-inline: 16px; }
+  .hero-actions .btn.primary span { transform: translateX(1px); }
+  .section::after { content: '⌁  /  SURVEY HYDRO'; display: block; max-width: var(--wrap); margin: 30px auto -16px; padding: 0 12px; color: rgba(19,120,255,.45); font-size: .58rem; letter-spacing: .18em; }
+  .section.dark::after { color: rgba(98,184,255,.48); }
+  .card, .activities li, .client { box-shadow: 0 8px 20px rgba(8,32,68,.08); }
+  html[data-theme="dark"] .card, html[data-theme="dark"] .activities li, html[data-theme="dark"] .client { box-shadow: 0 10px 24px rgba(0,0,0,.18); }
+}
+@keyframes mobile-rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) {
+  .whatsapp, .whatsapp::before, .hero-grid > .rv.in > *, .tech-chip, .scroll-cue { animation: none !important; transition-duration: .01ms !important; }
+  .scroll-cue { opacity: 1 !important; transform: none !important; }
+}

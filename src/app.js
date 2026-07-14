@@ -53,6 +53,14 @@ function initializeHeaderState(header) {
   window.addEventListener('scroll', onScroll, { passive: true });
 }
 
+
+function initializeScrollCue() {
+  const cue = document.querySelector('.scroll-cue');
+  if (!cue) return;
+  const hide = () => cue.classList.add('.is-hidden');
+  window.addEventListener('scroll', hide, { passive: true, once: true });
+}
+
 function initializeReveal() {
   const elements = document.querySelectorAll(SELECTORS.revealElements);
   if (!('IntersectionObserver' in window) || motionDisabled()) { elements.forEach((element) => element.classList.add('in')); return; }
@@ -89,6 +97,7 @@ function initializeApp() {
   initializeThemeControls(header, burger);
   initializeNavigation(header, burger);
   initializeHeaderState(header);
+  initializeScrollCue();
   initializeReveal();
   initializeAccordions();
   initializeContactForm();

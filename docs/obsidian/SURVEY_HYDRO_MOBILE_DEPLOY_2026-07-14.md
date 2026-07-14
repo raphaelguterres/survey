@@ -87,3 +87,17 @@ status: publicado
 - Animações desktop reativadas de forma condicional via ssets/motion-enhancements.js.
 - Desktop validado: Performance 96, Accessibility 100, Best Practices 96, SEO 100.
 - Mobile validado: Performance 100, Accessibility 96, Best Practices 96, SEO 100.
+
+
+## Fase 2 — Mais vida no mobile (2026-07-14)
+
+- Branch: `agent/mobile-visual-life`.
+- Hero ganhou selo técnico, chips de especialidade, CTAs com ícones e indicador Explore.
+- Cards, accordion, clientes, formulário e WhatsApp receberam microinterações leves em CSS.
+- `IntersectionObserver` e `prefers-reduced-motion` foram preservados.
+- Desktop continua com logo/navegação e bundle motion; mobile não carrega o bundle pesado.
+- Validação: lint, typecheck, testes 3/3 e build aprovados.
+- Navegador: mobile 390x844 e desktop 1280px verificados; menu mobile abriu com `aria-expanded=true`.
+- Lighthouse mobile: Performance 100, Accessibility 96, Best Practices 96, SEO 100, LCP 1.4 s, CLS 0, TBT 0 ms.
+- Evidências: `reports/mobile-hero-phase2.png` e `reports/mobile-services-phase2.png`.
+- Relatório detalhado: `reports/RELATORIO_MAIS_VIDA_MOBILE_SURVEY_HYDRO.md`.
