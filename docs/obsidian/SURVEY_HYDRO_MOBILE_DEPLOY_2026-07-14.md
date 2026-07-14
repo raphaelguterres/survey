@@ -101,3 +101,9 @@ status: publicado
 - Lighthouse mobile: Performance 100, Accessibility 96, Best Practices 96, SEO 100, LCP 1.4 s, CLS 0, TBT 0 ms.
 - Evidências: `reports/mobile-hero-phase2.png` e `reports/mobile-services-phase2.png`.
 - Relatório detalhado: `reports/RELATORIO_MAIS_VIDA_MOBILE_SURVEY_HYDRO.md`.
+## Diagnóstico do feedback visual (2026-07-14)
+
+- A inspeção no preview mobile 390x844 confirmou que os CTAs estão renderizando corretamente em largura total, com as setas dentro dos próprios links.
+- O círculo preto sobre “Ver atividades” não pertence ao site: é o elemento `vercel-live-feedback`, widget automático de feedback da Vercel em deployments de preview (`z-index: 2147483647`).
+- A publicação de produção foi escolhida para validação final sem esse overlay de preview.
+- Evidência visual: screenshot capturado no preview e inspeção DOM via `document.elementsFromPoint`.
