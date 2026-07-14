@@ -16,7 +16,7 @@
 <a class="brand" href="#top" aria-label="Survey">
 <img class="brand-logo" src="assets/survey-logo-blue.png" alt="Survey">
 </a>
-<nav id="main-navigation" class="links" aria-label="NavegaÃ§Ã£o principal">
+<nav id="main-navigation" class="links" aria-label="Navegacao principal">
 <div class="nav-service">
 <button class="service-toggle" type="button" aria-expanded="false" aria-controls="service-menu">Servi&ccedil;os</button>
 <div id="service-menu" class="service-menu">
@@ -27,8 +27,8 @@
 <a href="#clientes">Clientes</a>
 <a href="#contato">Contato</a>
 <div class="theme-switch" aria-label="Escolher tema">
-<button class="theme-option" type="button" data-theme-choice="light" aria-label="Usar tema claro" title="Tema claro">â˜¼</button>
-<button class="theme-option is-active" type="button" data-theme-choice="dark" aria-label="Usar tema escuro" title="Tema escuro">â—</button>
+<button class="theme-option" type="button" data-theme-choice="light" aria-label="Usar tema claro" title="Tema claro">&#9728;</button>
+<button class="theme-option is-active" type="button" data-theme-choice="dark" aria-label="Usar tema escuro" title="Tema escuro">&#9680;</button>
 </div>
 </nav>
 <button class="burger" type="button" aria-label="Abrir menu" aria-controls="main-navigation" aria-expanded="false">
@@ -116,13 +116,13 @@
 <a href="#servicos" data-tip="Escaneamento por laser para obter nuvens de pontos, modelos 3D e leitura detalhada do terreno, vegeta&ccedil;&atilde;o, estruturas e corredores.">Sistemas LiDAR</a>
 <a href="#servicos" data-tip="Estudos para compreender bacias, chuvas, cheias, drenagem, disponibilidade h&iacute;drica e impactos ambientais, apoiando licenciamento e decis&atilde;o t&eacute;cnica.">Hidrologia e Meio Ambiente</a>
 </aside>
-<ul class="activities rv" aria-label="ServiÃ§os oferecidos">
-<li><details><summary>Topografia e geoprocessamento</summary><p>MediÃ§Ã£o e representaÃ§Ã£o precisa do terreno, limites, cotas e elementos existentes para estudos, obras, cadastro e anÃ¡lise espacial.</p></details></li>
-<li><details><summary>Hidrometria</summary><p>Coleta de dados de rios, canais e cursos d'Ã¡gua para entender nÃ­vel, velocidade, vazÃ£o e comportamento hÃ­drico ao longo do tempo.</p></details></li>
-<li><details><summary>Batimetria</summary><p>Levantamento do relevo submerso para mapear profundidades, volumes, assoreamento, seÃ§Ãµes e condiÃ§Ãµes de navegaÃ§Ã£o ou estudo.</p></details></li>
-<li><details><summary>Aerolevantamentos com Drones</summary><p>Captura aÃ©rea georreferenciada para gerar ortofotos, modelos digitais, curvas de nÃ­vel e bases atualizadas com agilidade e alta resoluÃ§Ã£o.</p></details></li>
-<li><details><summary>Sistemas LiDAR</summary><p>Escaneamento por laser para obter nuvens de pontos, modelos 3D e leitura detalhada do terreno, vegetaÃ§Ã£o, estruturas e corredores.</p></details></li>
-<li><details><summary>Hidrologia e Meio Ambiente</summary><p>Estudos para compreender bacias, chuvas, cheias, drenagem, disponibilidade hÃ­drica e impactos ambientais, apoiando licenciamento e decisÃ£o tÃ©cnica.</p></details></li>
+<ul class="activities rv" aria-label="Servi&ccedil;os oferecidos">
+<li><details><summary>Topografia e geoprocessamento</summary><p>Medi&ccedil;&atilde;o e representa&ccedil;&atilde;o precisa do terreno, limites, cotas e elementos existentes para estudos, obras, cadastro e an&aacute;lise espacial.</p></details></li>
+<li><details><summary>Hidrometria</summary><p>Coleta de dados de rios, canais e cursos d&apos;&aacute;gua para entender n&iacute;vel, velocidade, vaz&atilde;o e comportamento h&iacute;drico ao longo do tempo.</p></details></li>
+<li><details><summary>Batimetria</summary><p>Levantamento do relevo submerso para mapear profundidades, volumes, assoreamento, se&ccedil;&otilde;es e condi&ccedil;&otilde;es de navega&ccedil;&atilde;o ou estudo.</p></details></li>
+<li><details><summary>Aerolevantamentos com Drones</summary><p>Captura a&eacute;rea georreferenciada para gerar ortofotos, modelos digitais, curvas de n&iacute;vel e bases atualizadas com agilidade e alta resolu&ccedil;&atilde;o.</p></details></li>
+<li><details><summary>Sistemas LiDAR</summary><p>Escaneamento por laser para obter nuvens de pontos, modelos 3D e leitura detalhada do terreno, vegeta&ccedil;&atilde;o, estruturas e corredores.</p></details></li>
+<li><details><summary>Hidrologia e Meio Ambiente</summary><p>Estudos para compreender bacias, chuvas, cheias, drenagem, disponibilidade h&iacute;drica e impactos ambientais, apoiando licenciamento e decis&atilde;o t&eacute;cnica.</p></details></li>
 </ul>
 </div>
 </div>
@@ -235,7 +235,14 @@
 </footer>
 <script src="src/app.js">
 </script>
-</body>
+<script>
+  if (window.matchMedia('(pointer: fine)').matches && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const desktopMotion = document.createElement('script');
+    desktopMotion.src = 'assets/motion-enhancements.js';
+    desktopMotion.defer = true;
+    document.body.appendChild(desktopMotion);
+  }
+</script></body>
 </html>
 
 

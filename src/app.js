@@ -77,9 +77,9 @@ function initializeContactForm() {
     event.preventDefault();
     if (!form.checkValidity()) { form.reportValidity(); return; }
     button.disabled = true;
-    button.textContent = 'Enviando…';
+    button.textContent = 'Enviando...';
     status.textContent = 'Recebemos seus dados. Retornaremos em breve.';
-    window.setTimeout(() => { form.reset(); button.disabled = false; button.textContent = 'Enviar solicitação'; }, 1800);
+    window.setTimeout(() => { form.reset(); button.disabled = false; button.textContent = 'Enviar solicita\u00e7\u00e3o'; }, 1800);
   });
 }
 
