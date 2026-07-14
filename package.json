@@ -1,24 +1,33 @@
 {
-  "name": "survey-hydro",
-  "version": "1.0.0",
-  "private": true,
-  "description": "Landing institucional da Survey Hydro.",
-  "scripts": {
-    "build": "npm run build:hero && npm run build:motion",
-    "build:hero": "esbuild src/hero3d.js --bundle --format=esm --target=es2020 --outfile=assets/hero3d.js --minify",
-    "build:motion": "esbuild src/motion-enhancements.jsx --bundle --format=iife --target=es2020 --jsx=automatic --outfile=assets/motion-enhancements.js --minify",
-    "dev": "python -m http.server 4174"
-  },
-  "dependencies": {
-    "@react-spring/web": "^10.1.2",
-    "@react-three/fiber": "^8.15.19",
-    "animejs": "^4.5.0",
-    "motion": "^12.42.2",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "three": "^0.160.0"
-  },
-  "devDependencies": {
-    "esbuild": "^0.21.5"
-  }
+    "name": "survey-hydro",
+    "version": "1.0.0",
+    "private": true,
+    "description": "Landing institucional da Survey Hydro.",
+    "scripts": {
+        "build": "npm run build:hero && npm run build:motion",
+        "build:hero": "esbuild src/hero3d.js --bundle --format=esm --target=es2020 --outfile=assets/hero3d.js --minify",
+        "build:motion": "esbuild src/motion-enhancements.jsx --bundle --format=iife --target=es2020 --jsx=automatic --outfile=assets/motion-enhancements.js --minify",
+        "dev": "python -m http.server 4174",
+        "lint": "eslint src/app.js tests --max-warnings 0",
+        "typecheck": "tsc --project tsconfig.json --pretty false",
+        "test": "node tests/quality.test.js",
+        "lighthouse:mobile": "node scripts/run-lighthouse.mjs"
+    },
+    "dependencies": {
+        "@react-spring/web": "^10.1.2",
+        "@react-three/fiber": "^8.15.19",
+        "animejs": "^4.5.0",
+        "motion": "^12.42.2",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "three": "^0.160.0"
+    },
+    "devDependencies": {
+        "@eslint/js": "^10.0.1",
+        "esbuild": "^0.21.5",
+        "eslint": "^10.7.0",
+        "lighthouse": "^13.4.0",
+        "typescript": "^7.0.2"
+    },
+    "type": "module"
 }

@@ -350,3 +350,85 @@ html[data-theme="dark"] body{color:#eef5ff;background:linear-gradient(180deg,#08
     font-size: .68rem;
   }
 }
+/* Mobile performance and accessibility pass */
+html { scroll-behavior: smooth; }
+body { overflow-x: clip; }
+header, .nav, .links, .service-menu, .btn, .burger, .theme-option, .submit, input, select, textarea, details, .activities li { transition-property: background-color, border-color, color, opacity, transform, box-shadow; }
+.brand-logo, .photo-card, .card, .activities li, .client { will-change: auto; }
+section[id] { scroll-margin-top: 80px; }
+main > .section { content-visibility: auto; contain-intrinsic-size: 700px; }
+.field-hint { color: var(--muted); font-size: .78rem; }
+.form-status { min-height: 1.4em; color: var(--blue); font-size: .9rem; }
+.submit:disabled { cursor: wait; opacity: .72; }
+.burger:focus-visible, .theme-option:focus-visible, .links a:focus-visible, .service-toggle:focus-visible, .btn:focus-visible, .submit:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, summary:focus-visible { outline: 3px solid #46b7ff; outline-offset: 3px; }
+.activities details { width: 100%; }
+.activities summary { min-height: 44px; display: flex; align-items: center; padding-right: 28px; cursor: pointer; list-style: none; }
+.activities summary::-webkit-details-marker { display: none; }
+.activities summary::after { content: '+'; margin-left: auto; color: var(--blue); font-size: 1.35rem; font-weight: 400; }
+.activities details[open] summary::after { content: '−'; }
+.activities details p { margin-top: 10px; color: var(--muted); font-size: .9rem; line-height: 1.5; font-weight: 400; }
+html[data-theme="dark"] .activities details p { color: #aabbd0; }
+
+@media (max-width: 980px) {
+  body.menu-lock { overflow: hidden; }
+  .nav { height: 64px; }
+  .links { top: 64px; max-height: calc(100dvh - 76px); overflow-y: auto; overscroll-behavior: contain; }
+  .nav-service { width: 100%; }
+  .service-toggle { justify-content: space-between; }
+  .service-menu { display: none; }
+  .service-menu.is-open { display: block; }
+  .nav-service:focus-within .service-menu { display: block; }
+  .theme-switch { margin: 6px 8px; }
+}
+
+@media (max-width: 680px) {
+  :root { --wrap: min(100% - 24px, 1120px); }
+  .nav { height: 60px; }
+  .brand-logo { width: 108px; }
+  .links { top: 60px; left: 12px; right: 12px; }
+  .theme-switch { gap: 4px; }
+  .theme-option { width: 36px; height: 36px; padding: 0; font-size: 1rem; }
+  .hero { min-height: auto; }
+  .hero-grid { padding: 28px 0 32px; gap: 18px; }
+  .hero h1 { font-size: clamp(2.15rem, 10vw, 3rem); line-height: 1.02; }
+  .hero-copy { margin-top: 14px; }
+  .hero-actions { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 20px; }
+  .hero-actions .btn { height: 48px; font-size: .82rem; }
+  .photo-stack { display: none; }
+  .hero-glow, .river-flow-svg { display: none; }
+  .section { padding: 48px 0; }
+  .section-title { gap: 8px; margin-bottom: 24px; }
+  .activity-layout { gap: 16px; }
+  .service-list { display: none; }
+  .activities { gap: 10px; }
+  .activities li { min-height: 0; padding: 14px 16px; }
+  .activities summary { font-size: .94rem; }
+  .activities li::before, .activities li::after { display: none; }
+  .cards { gap: 10px; }
+  .card { padding: 18px; }
+  .clients { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .client { min-height: 82px; padding: 14px 8px; font-size: .78rem; }
+  .contact-grid { gap: 18px; }
+  .contact-card, form { padding: 18px; }
+  input, select, textarea { font-size: 16px; }
+  .submit { width: 100%; min-height: 48px; }
+  .whatsapp { width: 52px; height: 52px; right: 16px; bottom: calc(16px + env(safe-area-inset-bottom)); }
+}
+
+@media (max-width: 340px) {
+  .clients { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 2rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+  .rv { opacity: 1 !important; transform: none !important; }
+}
+
+/* The hero texture is decorative on small screens; keep the content as the LCP element. */
+@media (max-width: 680px) {
+  .hero::before { display: none; }
+  .hero { background: var(--paper); }
+  html[data-theme="dark"] .hero { background: #05070b; }
+}
