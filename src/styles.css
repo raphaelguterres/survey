@@ -912,3 +912,18 @@ input:focus, select:focus, textarea:focus { border-color: #46b7ff; box-shadow: 0
     width: max-content !important;
   }
 }
+/* Hotfix visual: mobile hero must follow content height, never vertically center the first fold. */
+@media (max-width: 767px) {
+  .hero,
+  .hero-grid,
+  .hero-mobile-grid {
+    min-height: auto !important;
+  }
+
+  .hero-grid,
+  .hero-mobile-grid {
+    align-content: start;
+    padding-top: 28px;
+    padding-bottom: 28px;
+  }
+}

@@ -56,4 +56,8 @@ test('fase 4 usa grids editoriais mobile e CTAs com toque acessivel', () => {
   assert.match(css, /grid-template-columns: 1.15fr .85fr/);
   assert.match(css, /min-height: 44px/);
   assert.match(css, /@media \(max-width: 359px\)/);
+});test('mobile hero nao deve criar vazio vertical no primeiro fold', () => {
+  assert.match(css, /Hotfix visual: mobile hero/);
+  assert.match(css, /\.hero,\s*\.hero-grid,\s*\.hero-mobile-grid \{[\s\S]*min-height: auto !important/);
+  assert.match(css, /align-content: start/);
 });
