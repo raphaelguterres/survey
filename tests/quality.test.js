@@ -39,10 +39,21 @@ test('cards de atividades mantêm visual clean sem ícones', () => {
 });
 
 test('fase 3 inclui CTAs compactos e galeria mobile nativa', () => {
-  assert.match(html, /class="mobile-field-gallery__track"/);
+  assert.match(html, /class="[^"]*mobile-field-gallery__track/);
   assert.match(html, /loading="lazy" decoding="async"/);
   assert.match(css, /\.hero-actions \.btn \{[\s\S]*min-height: 44px/);
   assert.match(css, /scroll-snap-type: x mandatory/);
   assert.match(css, /mobile-field-card|mobile-field-gallery/);
   assert.match(html, /window\.innerWidth > 767/);
+});
+test('fase 4 usa grids editoriais mobile e CTAs com toque acessivel', () => {
+  assert.match(html, /hero-mobile-grid/);
+  assert.match(html, /mobile-field-grid/);
+  assert.match(html, /mobile-field-card--topografia/);
+  assert.match(html, /clients-grid/);
+  assert.match(html, /process-grid/);
+  assert.match(html, /form-field--full/);
+  assert.match(css, /grid-template-columns: 1.15fr .85fr/);
+  assert.match(css, /min-height: 44px/);
+  assert.match(css, /@media \(max-width: 359px\)/);
 });

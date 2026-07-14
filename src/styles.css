@@ -581,4 +581,334 @@ input:focus, select:focus, textarea:focus { border-color: #46b7ff; box-shadow: 0
 @media (max-width: 767px) {
   .desktop-photo-stack { display: none; }
   .mobile-field-gallery { display: block; }
+}/* Fase 4: grid editorial mobile e CTAs refinados */
+:root {
+  --mobile-page-padding: 16px;
+  --mobile-grid-gap: 10px;
+  --mobile-section-gap: 56px;
+  --mobile-card-radius: 12px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 56px;
+}
+@media (max-width: 767px) {
+  .hero-mobile-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--mobile-grid-gap);
+  }
+  .hero-mobile-grid > .rv {
+    grid-column: 1 / -1;
+    min-width: 0;
+  }
+  .hero-mobile-grid .hero-copy {
+    max-width: none;
+  }
+  .hero-actions {
+    display: grid;
+    grid-template-columns: max-content max-content;
+    align-items: center;
+    justify-content: start;
+    gap: 7px;
+    margin-top: 2px;
+    width: auto;
+  }
+  .hero-actions .hero-action {
+    width: max-content;
+    max-width: 100%;
+    min-width: 0;
+    min-height: 44px;
+    height: 44px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+    justify-content: center;
+    white-space: nowrap;
+    overflow: visible;
+  }
+  .hero-action__surface {
+    min-height: 36px;
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding-inline: 13px;
+    border-radius: var(--radius-sm);
+    font-size: 11px;
+    line-height: 1;
+    letter-spacing: .015em;
+    font-weight: 700;
+    transition: transform 140ms ease, background-color 180ms ease, border-color 180ms ease;
+  }
+  .hero-action--primary .hero-action__surface {
+    max-width: 190px;
+    background: var(--blue);
+    color: #fff;
+  }
+  .hero-action--secondary .hero-action__surface {
+    max-width: 155px;
+    padding-inline: 12px;
+    font-size: 10.5px;
+    background: rgba(255,255,255,.035);
+    color: #eef6ff;
+    border: 1px solid rgba(255,255,255,.16);
+  }
+  .hero-action__surface > span {
+    margin-left: 0;
+    font-size: 11px;
+    flex: 0 0 auto;
+  }
+  .hero-action--secondary .hero-action__surface > span {
+    font-size: 11px;
+  }
+  .hero-action:active .hero-action__surface {
+    transform: scale(.97);
+  }
+  .hero-actions .hero-action:focus-visible {
+    outline: 3px solid #46b7ff;
+    outline-offset: 2px;
+  }
+  .tech-chips {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    margin-top: 6px;
+    width: 100%;
+  }
+  .tech-chip {
+    width: 100%;
+    min-width: 0;
+    min-height: 32px;
+    padding: 7px 9px;
+    justify-content: flex-start;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .tech-chip:last-child {
+    grid-column: 1 / -1;
+  }
+  .field-section {
+    padding-block: 40px;
+    background:
+      radial-gradient(circle at 85% 15%, rgba(18,116,255,.18), transparent 38%),
+      linear-gradient(180deg, #061126 0%, #04101f 100%);
+  }
+  .mobile-field-grid {
+    display: grid;
+    grid-template-columns: 1.15fr .85fr;
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+    gap: var(--mobile-grid-gap);
+    height: clamp(360px, 110vw, 480px);
+    overflow: visible;
+    padding: 0 var(--mobile-page-padding);
+  }
+  .mobile-field-gallery__intro {
+    padding-inline: var(--mobile-page-padding);
+  }
+  .mobile-field-gallery__track .mobile-field-card {
+    min-width: 0;
+    min-height: 0;
+    height: auto;
+    aspect-ratio: auto;
+    margin: 0;
+    border-radius: var(--mobile-card-radius);
+    box-shadow: 0 12px 26px rgba(0,0,0,.22);
+  }
+  .mobile-field-card--topografia {
+    grid-column: 1;
+    grid-row: 1 / 3;
+  }
+  .mobile-field-card--hidrometria {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .mobile-field-card--campo {
+    grid-column: 2;
+    grid-row: 2;
+  }
+  .mobile-field-card::after {
+    inset: 35% 0 0;
+    background: linear-gradient(to bottom, transparent, rgba(2,8,18,.88));
+  }
+  .mobile-field-card__title,
+  .mobile-field-card > span {
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    font-size: .78rem;
+    line-height: 1.15;
+  }
+  .mobile-field-card--topografia > span {
+    font-size: .95rem;
+  }
+  .mobile-field-card picture,
+  .mobile-field-card picture img {
+    width: 100%;
+    height: 100%;
+  }
+  .mobile-field-card picture img {
+    object-fit: cover;
+  }
+  .mobile-field-card--topografia img { object-position: 46% center; }
+  .mobile-field-card--hidrometria img { object-position: center 48%; }
+  .mobile-field-card--campo img { object-position: center 58%; }
+
+  .about-grid,
+  .about-grid .section-title {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--mobile-grid-gap);
+  }
+  .about-grid .section-title > * {
+    grid-column: 1 / -1;
+  }
+  .about-grid .section-title {
+    margin-bottom: 0;
+  }
+  .services-list {
+    display: grid;
+    gap: 8px;
+  }
+  .services-list li {
+    min-height: 64px;
+  }
+  .services-list summary {
+    display: grid;
+    grid-template-columns: 32px minmax(0, 1fr) 24px;
+    align-items: center;
+    gap: 10px;
+    min-height: 44px;
+  }
+  .services-list summary::before {
+    content: '';
+    width: 24px;
+    height: 24px;
+    border: 1px solid rgba(70,183,255,.45);
+    border-radius: 50%;
+    background: radial-gradient(circle, #46b7ff 0 2px, transparent 3px);
+    justify-self: center;
+  }
+  .services-list summary::after {
+    content: '+';
+    display: block;
+    color: var(--blue);
+    font-size: 1.2rem;
+    text-align: center;
+  }
+  .services-list details[open] summary::after {
+    content: '−';
+  }
+  .process-grid {
+    display: grid;
+    grid-template-columns: 34px minmax(0, 1fr);
+    gap: 0 12px;
+  }
+  .process-grid .process-card {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 34px minmax(0, 1fr);
+    gap: 12px;
+    min-height: 118px;
+    padding: 16px;
+  }
+  .process-grid .process-card small {
+    grid-column: 1;
+    align-self: start;
+    padding-top: 3px;
+  }
+  .process-grid .process-card > div {
+    grid-column: 2;
+  }
+  .process-grid .process-card:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 31px;
+    top: 39px;
+    bottom: -10px;
+    width: 1px;
+    background: rgba(19,120,255,.35);
+  }
+  .clients-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--mobile-grid-gap);
+    border: 0;
+  }
+  .clients-grid .client-card {
+    min-height: 128px;
+    padding: 16px;
+    border: 1px solid rgba(255,255,255,.18);
+    border-radius: var(--radius-md);
+    display: grid;
+    align-content: space-between;
+    justify-items: start;
+    text-align: left;
+  }
+  .contact-form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+  .contact-form .form-field--full,
+  .contact-form textarea,
+  .contact-form button[type="submit"],
+  .contact-form .form-status {
+    grid-column: 1 / -1;
+  }
+}
+@media (max-width: 359px) {
+  :root {
+    --mobile-page-padding: 12px;
+    --mobile-grid-gap: 8px;
+  }
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .hero-actions .hero-action {
+    width: max-content;
+  }
+  .mobile-field-grid {
+    padding-inline: var(--mobile-page-padding);
+  }
+  .clients-grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 319px) {
+  .hero-actions {
+    display: grid;
+    grid-template-columns: max-content;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-action__surface {
+    transition-duration: .01ms;
+  }
+}@media (max-width: 767px) {
+  .field-section.mobile-field-gallery {
+    width: 100%;
+    margin-inline: 0;
+  }
+  .hero-actions .hero-action,
+  .hero-actions .btn.primary {
+    width: max-content !important;
+  }
+}
+@media (max-width: 359px) {
+  .hero-actions .hero-action,
+  .hero-actions .btn.primary {
+    width: max-content !important;
+  }
 }

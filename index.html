@@ -59,14 +59,14 @@
 <path class="river-sheen" d="M20 560 C300 480 470 550 705 465 C960 372 1195 405 1510 292"/>
 <path class="river-sheen" d="M-20 500 C270 398 440 482 735 388 C1020 298 1190 330 1550 232"/>
 </svg>
-<div class="wrap hero-grid">
+<div class="wrap hero-grid hero-mobile-grid">
 <div class="rv">
 <span class="hero-eyebrow" aria-hidden="true">Survey Hydro / leitura de campo</span>
 <h1>A Survey transforma dados de campo em decis&otilde;es seguras.</h1>
 <p class="hero-copy">Topografia, hidrometria e meio ambiente para projetos mais claros, precisos e confi&aacute;veis.</p>
 <div class="hero-actions">
-<a class="btn primary" href="#contato">Solicitar proposta <span aria-hidden="true">&rarr;</span></a>
-<a class="btn ghost" href="#servicos">Ver atividades <span aria-hidden="true">&darr;</span></a>
+<a class="btn hero-action hero-action--primary primary" href="#contato"><span class="hero-action__surface">Solicitar proposta <span aria-hidden="true">&rarr;</span></span></a>
+<a class="btn hero-action hero-action--secondary ghost" href="#servicos"><span class="hero-action__surface">Ver atividades <span aria-hidden="true">&darr;</span></span></a>
 </div>
 <div class="tech-chips" aria-label="Especialidades">
 <span class="tech-chip"><i aria-hidden="true">&oplus;</i> Topografia e nivelamento</span>
@@ -81,22 +81,22 @@
 <div class="photo-card"><span>Hidrometria e batimetria</span></div>
 <div class="photo-card"><span>Campo em ambiente h&iacute;drico</span></div>
 </div></section>
-<div class="photo-stack mobile-field-gallery rv" aria-label="Atua&ccedil;&atilde;o em campo">
+<div class="photo-stack mobile-field-gallery field-section rv" aria-label="Atua&ccedil;&atilde;o em campo">
 <div class="mobile-field-gallery__intro">
 <span class="mobile-field-gallery__eyebrow">Atua&ccedil;&atilde;o em campo</span>
 <p>Dados reais, trabalho t&eacute;cnico e execu&ccedil;&atilde;o em diferentes ambientes.</p>
 <span class="mobile-field-gallery__hint">Deslize para explorar <span aria-hidden="true">&rarr;</span></span>
 </div>
-<div class="mobile-field-gallery__track">
-<div class="photo-card photo-card--topografia">
+<div class="mobile-field-gallery__track mobile-field-grid">
+<div class="photo-card mobile-field-card mobile-field-card--topografia photo-card--topografia">
 <picture><source type="image/webp" srcset="assets/mobile/field-topografia.webp"><img src="assets/drive/hero-topografia-campo.jpg" alt="Equipe realizando levantamento topogr&aacute;fico em &aacute;rea de campo" width="900" height="1280" loading="lazy" decoding="async" fetchpriority="low"></picture>
 <span>Topografia e nivelamento</span>
 </div>
-<div class="photo-card photo-card--hidrometria">
+<div class="photo-card mobile-field-card mobile-field-card--hidrometria photo-card--hidrometria">
 <picture><source type="image/webp" srcset="assets/mobile/field-hidrometria.webp"><img src="assets/drive/hero-recursos-hidricos-campo.jpg" alt="Medi&ccedil;&atilde;o hidrom&eacute;trica em ambiente aqu&aacute;tico" width="1000" height="620" loading="lazy" decoding="async" fetchpriority="low"></picture>
 <span>Hidrometria e batimetria</span>
 </div>
-<div class="photo-card photo-card--campo">
+<div class="photo-card mobile-field-card mobile-field-card--campo photo-card--campo">
 <picture><source type="image/webp" srcset="assets/mobile/field-campo.webp"><img src="assets/drive/hero-meio-ambiente-campo.jpg" alt="Equipamento t&eacute;cnico em trabalho de campo ambiental" width="1000" height="620" loading="lazy" decoding="async" fetchpriority="low"></picture>
 <span>Campo em ambiente h&iacute;drico</span>
 </div>
@@ -108,7 +108,7 @@
 </svg>
 </a>
 <section id="sobre" class="section">
-<div class="wrap">
+<div class="wrap about-grid">
 <div class="section-title rv">
 <div class="kicker">Quem Somos</div>
 <div>
@@ -137,7 +137,7 @@
 <a href="#servicos" data-tip="Escaneamento por laser para obter nuvens de pontos, modelos 3D e leitura detalhada do terreno, vegeta&ccedil;&atilde;o, estruturas e corredores.">Sistemas LiDAR</a>
 <a href="#servicos" data-tip="Estudos para compreender bacias, chuvas, cheias, drenagem, disponibilidade h&iacute;drica e impactos ambientais, apoiando licenciamento e decis&atilde;o t&eacute;cnica.">Hidrologia e Meio Ambiente</a>
 </aside>
-<ul class="activities rv" aria-label="Servi&ccedil;os oferecidos">
+<ul class="activities services-list rv" aria-label="Servi&ccedil;os oferecidos">
 <li><details><summary>Topografia e geoprocessamento</summary><p>Medi&ccedil;&atilde;o e representa&ccedil;&atilde;o precisa do terreno, limites, cotas e elementos existentes para estudos, obras, cadastro e an&aacute;lise espacial.</p></details></li>
 <li><details><summary>Hidrometria</summary><p>Coleta de dados de rios, canais e cursos d&apos;&aacute;gua para entender n&iacute;vel, velocidade, vaz&atilde;o e comportamento h&iacute;drico ao longo do tempo.</p></details></li>
 <li><details><summary>Batimetria</summary><p>Levantamento do relevo submerso para mapear profundidades, volumes, assoreamento, se&ccedil;&otilde;es e condi&ccedil;&otilde;es de navega&ccedil;&atilde;o ou estudo.</p></details></li>
@@ -151,22 +151,22 @@
 
 <section class="section soft">
 <div class="wrap">
-<div class="cards">
-<article class="card rv">
+<div class="cards process-grid">
+<article class="card process-card rv">
 <small>01</small>
 <div>
 <h3>Levantamento preciso</h3>
 <p>Base planialtim&eacute;trica, pontos de controle, se&ccedil;&otilde;es e cadastro para reduzir incertezas no projeto.</p>
 </div>
 </article>
-<article class="card rv">
+<article class="card process-card rv">
 <small>02</small>
 <div>
 <h3>Diagn&oacute;stico h&iacute;drico</h3>
 <p>Hidrometria, batimetria e modelagem para entender o comportamento da &aacute;gua no territ&oacute;rio.</p>
 </div>
 </article>
-<article class="card rv">
+<article class="card process-card rv">
 <small>03</small>
 <div>
 <h3>Entrega t&eacute;cnica</h3>
@@ -185,11 +185,11 @@
 <p class="lead">A linguagem visual segue as refer&ecirc;ncias: institucional, clara, t&eacute;cnica e com foco em servi&ccedil;os de campo.</p>
 </div>
 </div>
-<div class="clients rv">
-<div class="client">Construtoras</div>
-<div class="client">Consultorias</div>
-<div class="client">Agroneg&oacute;cio</div>
-<div class="client">Setor P&uacute;blico</div>
+<div class="clients clients-grid rv">
+<div class="client client-card">Construtoras</div>
+<div class="client client-card">Consultorias</div>
+<div class="client client-card">Agroneg&oacute;cio</div>
+<div class="client client-card">Setor P&uacute;blico</div>
 </div>
 </div>
 </section>
@@ -215,7 +215,7 @@
 </div>
 </div>
 </div>
-<form id="contact-form" class="rv">
+<form id="contact-form" class="contact-form rv">
 <div class="field">
 <label for="nome">Nome</label>
 <input id="nome" name="nome" type="text" autocomplete="name" required>
@@ -225,8 +225,7 @@
 <input id="retorno" name="retorno" type="text" inputmode="email" autocomplete="email" aria-describedby="retorno-help" required>
 <small id="retorno-help" class="field-hint">Informe e-mail ou telefone com WhatsApp.</small>
 </div>
-<div class="field">
-<label for="demanda">Demanda</label>
+<div class="field form-field--full"><label for="demanda">Demanda</label>
 <select id="demanda" name="demanda">
 <option>Topografia e geoprocessamento</option>
 <option>Hidrometria</option>
@@ -236,8 +235,7 @@
 <option>Hidrologia e Meio Ambiente</option>
 </select>
 </div>
-<div class="field">
-<label for="mensagem">Resumo</label>
+<div class="field form-field--full"><label for="mensagem">Resumo</label>
 <textarea id="mensagem" name="mensagem" placeholder="Local, prazo, objetivo e dados dispon&iacute;veis">
 </textarea>
 </div>
