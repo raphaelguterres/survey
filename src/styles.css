@@ -503,3 +503,82 @@ input:focus, select:focus, textarea:focus { border-color: #46b7ff; box-shadow: 0
   border-left: 0;
   padding-left: 0;
 }
+/* Fase 3: CTAs compactos e galeria nativa para mobile */
+.photo-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; z-index: 0; }
+.photo-card--topografia img { object-position: center 42%; }
+.photo-card--hidrometria img { object-position: center; }
+.photo-card--campo img { object-position: center 55%; }
+.mobile-field-gallery__intro, .mobile-field-gallery__hint { display: none; }
+
+@media (max-width: 767px) {
+  .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 14px; }
+  .hero-actions .btn { width: auto; min-width: 0; min-height: 44px; height: 44px; padding: 9px 14px; border-radius: 6px; font-size: .76rem; line-height: 1; justify-content: center; gap: 6px; }
+  .hero-actions .btn span { margin-left: 2px; font-size: .9em; }
+  .hero-actions .btn.primary { width: min(74%, 260px); }
+  .hero-actions .btn.ghost { width: fit-content; }
+  .tech-chips { gap: 6px; margin-top: 12px; }
+  .tech-chip { min-height: 30px; padding: 6px 9px; gap: 5px; font-size: .66rem; }
+  .tech-chip i { font-size: .82rem; }
+  .scroll-cue { margin-top: 12px; }
+  .mobile-field-gallery { display: block; width: calc(100% + 28px); margin: 4px -14px -4px; padding: 24px 0 20px; overflow: hidden; background: linear-gradient(180deg, rgba(2,12,25,.5), rgba(2,12,25,.92)), url("../assets/hero-water-v3.png") center / cover; }
+  .mobile-field-gallery__intro { display: block; padding: 0 14px 14px; }
+  .mobile-field-gallery__eyebrow { color: #62b8ff; font-size: .68rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+  .mobile-field-gallery__intro p { margin: 6px 0 0; color: #c3d2e2; font-size: .84rem; line-height: 1.4; }
+  .mobile-field-gallery__hint { display: block; margin-top: 10px; color: #8fa8c2; font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; }
+  .mobile-field-gallery__hint span { color: #62b8ff; }
+  .mobile-field-gallery .photo-card { flex: 0 0 min(78vw, 300px); min-height: 0; aspect-ratio: 4 / 5; scroll-snap-align: start; border-radius: 12px; box-shadow: 0 10px 24px rgba(0,0,0,.2); }
+  .mobile-field-gallery .photo-card:first-of-type { grid-row: auto; min-height: 0; }
+  .mobile-field-gallery .photo-card::after { z-index: 1; inset: 38% 0 0; background: linear-gradient(to bottom, transparent, rgba(0,0,0,.82)); }
+  .mobile-field-gallery .photo-card span { z-index: 2; left: 16px; right: 16px; bottom: 16px; font-size: .92rem; line-height: 1.18; }
+  .mobile-field-gallery { display: flex; flex-wrap: wrap; gap: 0; }
+  .mobile-field-gallery__intro { flex: 0 0 100%; }
+  .mobile-field-gallery .photo-card { display: block; overflow: hidden; }
+  .mobile-field-gallery { overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: 14px; padding-inline: 14px; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+  .mobile-field-gallery::-webkit-scrollbar { display: none; }
+  .mobile-field-gallery__intro { margin-inline: -14px; }
+  .mobile-field-gallery .photo-card + .photo-card { margin-left: 12px; }
+}
+
+@media (min-width: 430px) and (max-width: 767px) {
+  .mobile-field-gallery .photo-card { flex-basis: min(68vw, 310px); }
+}
+
+@media (max-width: 359px) {
+  .hero-actions { align-items: flex-start; }
+  .hero-actions .btn.primary { width: 100%; }
+  .mobile-field-gallery .photo-card { flex-basis: 84vw; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mobile-field-gallery { scroll-behavior: auto; }
+}
+/* Galeria: o track vira grade no desktop e carrossel nativo somente no mobile */
+.mobile-field-gallery__track { display: contents; }
+@media (max-width: 767px) {
+  .mobile-field-gallery { display: block; width: calc(100% + 28px); margin: 4px -14px -4px; padding: 24px 0 20px; overflow: hidden; }
+  .mobile-field-gallery__track { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: 14px; padding: 0 14px 8px; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+  .mobile-field-gallery__track::-webkit-scrollbar { display: none; }
+  .mobile-field-gallery .photo-card { flex: 0 0 min(78vw, 300px); margin: 0; }
+}
+@media (min-width: 430px) and (max-width: 767px) {
+  .mobile-field-gallery .photo-card { flex-basis: min(68vw, 310px); }
+}
+@media (max-width: 359px) {
+  .mobile-field-gallery .photo-card { flex-basis: 84vw; }
+}@media (max-width: 767px) {
+  .mobile-field-gallery__track .photo-card + .photo-card { margin-left: 0; }
+}@media (max-width: 767px) {
+  .mobile-field-gallery__intro { margin-inline: 0; }
+}@media (max-width: 767px) {
+  .mobile-field-gallery { background: linear-gradient(180deg, rgba(2,12,25,.38), rgba(2,12,25,.96)), radial-gradient(circle at 70% 0%, rgba(19,120,255,.18), transparent 58%); }
+}.photo-card picture { position: absolute; inset: 0; display: block; z-index: 0; }
+.photo-card picture img { position: absolute; }@media (max-width: 767px) {
+  .hero { min-height: calc(100svh - 60px); }
+  .hero-grid { min-height: calc(100svh - 60px); align-content: center; }
+  .mobile-field-gallery { margin-top: 0; }
+}.desktop-photo-stack { display: grid; }
+.mobile-field-gallery { display: none; }
+@media (max-width: 767px) {
+  .desktop-photo-stack { display: none; }
+  .mobile-field-gallery { display: block; }
+}

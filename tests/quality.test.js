@@ -37,3 +37,12 @@ test('cards de atividades mantêm visual clean sem ícones', () => {
   assert.match(css, /\.activities li::after,\s*\.activities summary::after/);
   assert.match(css, /\.activities summary \{[\s\S]*padding-right: 0/);
 });
+
+test('fase 3 inclui CTAs compactos e galeria mobile nativa', () => {
+  assert.match(html, /class="mobile-field-gallery__track"/);
+  assert.match(html, /loading="lazy" decoding="async"/);
+  assert.match(css, /\.hero-actions \.btn \{[\s\S]*min-height: 44px/);
+  assert.match(css, /scroll-snap-type: x mandatory/);
+  assert.match(css, /mobile-field-card|mobile-field-gallery/);
+  assert.match(html, /window\.innerWidth > 767/);
+});
