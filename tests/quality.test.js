@@ -60,4 +60,9 @@ test('fase 4 usa grids editoriais mobile e CTAs com toque acessivel', () => {
   assert.match(css, /Hotfix visual: mobile hero/);
   assert.match(css, /\.hero,\s*\.hero-grid,\s*\.hero-mobile-grid \{[\s\S]*min-height: auto !important/);
   assert.match(css, /align-content: start/);
+});test('CTAs mobile respeitam colunas iguais do grid', () => {
+  assert.match(css, /Hotfix visual 2: hero actions aligned/);
+  assert.match(css, /grid-template-columns: repeat\(2, minmax\(0, 1fr\)\)/);
+  assert.match(css, /\.hero-actions \.btn\.primary,[\s\S]*width: 100% !important/);
+  assert.match(css, /min-width: 0 !important/);
 });

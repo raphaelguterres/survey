@@ -927,3 +927,55 @@ input:focus, select:focus, textarea:focus { border-color: #46b7ff; box-shadow: 0
     padding-bottom: 28px;
   }
 }
+/* Hotfix visual 2: hero actions aligned to the same mobile grid. */
+@media (max-width: 767px) {
+  .hero-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .hero-actions .hero-action,
+  .hero-actions .hero-action:hover,
+  .hero-actions .hero-action:active {
+    width: 100% !important;
+    min-width: 0;
+    max-width: none;
+  }
+
+  .hero-action__surface,
+  .hero-action--primary .hero-action__surface,
+  .hero-action--secondary .hero-action__surface {
+    width: 100%;
+    max-width: none;
+    min-height: 40px;
+    height: 40px;
+    padding-inline: 10px;
+    font-size: clamp(10px, 2.6vw, 12px);
+    white-space: nowrap;
+  }
+}
+@media (max-width: 359px) {
+  .hero-action__surface,
+  .hero-action--primary .hero-action__surface,
+  .hero-action--secondary .hero-action__surface {
+    padding-inline: 8px;
+    font-size: 10px;
+    gap: 4px;
+  }
+}
+@media (max-width: 767px) {
+  .hero-actions .hero-action,
+  .hero-actions .btn.primary,
+  .hero-actions .btn.ghost {
+    min-width: 0 !important;
+  }
+}
+@media (max-width: 767px) {
+  .hero-actions .btn.primary,
+  .hero-actions .btn.ghost {
+    width: 100% !important;
+  }
+}
