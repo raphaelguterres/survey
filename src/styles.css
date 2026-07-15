@@ -526,7 +526,6 @@ input:focus, select:focus, textarea:focus { border-color: #46b7ff; box-shadow: 0
   .mobile-field-gallery__hint { display: block; margin-top: 10px; color: #8fa8c2; font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; }
   .mobile-field-gallery__hint span { color: #62b8ff; }
   .mobile-field-gallery .photo-card { flex: 0 0 min(78vw, 300px); min-height: 0; aspect-ratio: 4 / 5; scroll-snap-align: start; border-radius: 12px; box-shadow: 0 10px 24px rgba(0,0,0,.2); }
-  .mobile-field-gallery .photo-card:first-of-type { grid-row: auto; min-height: 0; }
   .mobile-field-gallery .photo-card::after { z-index: 1; inset: 38% 0 0; background: linear-gradient(to bottom, transparent, rgba(0,0,0,.82)); }
   .mobile-field-gallery .photo-card span { z-index: 2; left: 16px; right: 16px; bottom: 16px; font-size: .92rem; line-height: 1.18; }
   .mobile-field-gallery { display: flex; flex-wrap: wrap; gap: 0; }
@@ -960,4 +959,244 @@ input:focus, select:focus, textarea:focus { border-color: #46b7ff; box-shadow: 0
     font-size: 10px;
     gap: 4px;
   }
+}
+/* ================================================================
+   Fase 5 — Auditoria sênior UI/UX mobile
+   Eixo global, hero equilibrado, CTAs proporcionais, transição
+   hero→galeria, mosaico corrigido, WhatsApp sem sobreposição.
+   ================================================================ */
+:root {
+  --mobile-gutter: 16px;
+  --mobile-content-max: 440px;
+  --control-height: 44px;
+}
+@media (max-width: 349px) {
+  :root { --mobile-gutter: 12px; }
+}
+#sobre, #servicos, #clientes, #contato { scroll-margin-top: 84px; }
+@media (max-width: 767px) {
+  :root {
+    --wrap: min(100% - (2 * var(--mobile-gutter)), var(--mobile-content-max));
+    --mobile-page-padding: var(--mobile-gutter);
+    --mobile-grid-gap: 8px;
+  }
+
+  /* --- Hero: respiro e hierarquia --- */
+  .hero-grid,
+  .hero-mobile-grid {
+    padding-top: 32px;
+    padding-bottom: 28px;
+  }
+  .hero-eyebrow {
+    font-size: 10px;
+    line-height: 1.2;
+    letter-spacing: .13em;
+    margin-bottom: 14px;
+  }
+  .hero-eyebrow::before { width: 18px; }
+  .hero h1 {
+    max-width: 19ch;
+    font-size: clamp(2.25rem, 10.2vw, 2.9rem);
+    line-height: .98;
+    letter-spacing: -.05em;
+    text-wrap: balance;
+  }
+  .hero-copy {
+    max-width: 37ch;
+    margin-top: 16px;
+    font-size: 13.5px;
+    line-height: 1.5;
+  }
+
+  /* --- Transição hero → galeria (e legibilidade no tema claro) --- */
+  .hero,
+  html[data-theme="dark"] .hero {
+    background: linear-gradient(180deg, #071b4a 0%, #071b4a 60%, #061126 100%);
+  }
+  html[data-theme="dark"] .hero {
+    background: linear-gradient(180deg, #05070b 0%, #05070b 55%, #061126 100%);
+  }
+  .hero::after,
+  html[data-theme="dark"] .hero::after {
+    background: linear-gradient(180deg, rgba(5,10,20,.9) 0 45%, rgba(6,17,38,.68) 74%, rgba(6,17,38,.42) 100%);
+  }
+  .hero h1 { color: #fff; }
+  .hero-copy { color: #b6c5d8; }
+
+  /* --- CTAs: principal compacto, secundário discreto --- */
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin-top: 18px;
+    width: auto;
+  }
+  .hero-actions .hero-action,
+  .hero-actions .hero-action:hover,
+  .hero-actions .hero-action:active,
+  .hero-actions .btn.primary,
+  .hero-actions .btn.ghost {
+    width: auto;
+    max-width: none;
+  }
+  .hero-actions .hero-action .hero-action__surface,
+  .hero-actions .hero-action--primary .hero-action__surface,
+  .hero-actions .hero-action--secondary .hero-action__surface {
+    display: contents;
+  }
+  .hero-actions .hero-action {
+    min-height: var(--control-height);
+    height: var(--control-height);
+    padding: 0;
+    box-shadow: none;
+  }
+  .hero-actions .hero-action--primary {
+    max-width: 190px;
+    padding-inline: 15px;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    font-size: 10.5px;
+    line-height: 1;
+    font-weight: 750;
+    white-space: nowrap;
+    background: var(--blue);
+    color: #fff;
+    border: 0;
+  }
+  .hero-actions .btn.ghost.hero-action--secondary,
+  html[data-theme="dark"] .hero-actions .btn.ghost.hero-action--secondary {
+    padding-inline: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 7px;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid rgba(255,255,255,.3);
+    border-radius: 0;
+    font-size: 10.5px;
+    line-height: 1;
+    font-weight: 700;
+    white-space: nowrap;
+    color: #eef6ff;
+  }
+  .hero-actions .btn.ghost.hero-action--secondary:hover,
+  .hero-actions .btn.ghost.hero-action--secondary:active,
+  html[data-theme="dark"] .hero-actions .btn.ghost.hero-action--secondary:hover,
+  html[data-theme="dark"] .hero-actions .btn.ghost.hero-action--secondary:active {
+    background: transparent;
+    border-bottom-color: rgba(255,255,255,.6);
+  }
+  .hero-actions .hero-action .hero-action__surface > span,
+  .hero-actions .hero-action--secondary .hero-action__surface > span {
+    font-size: 11px;
+    margin-left: 0;
+  }
+  .hero-actions .hero-action:active { transform: scale(.97); }
+
+  /* "01 Explore" migrou para o eyebrow da galeria */
+  .scroll-cue { display: none; }
+
+  /* --- Galeria / mosaico --- */
+  .field-section,
+  .mobile-field-gallery {
+    padding-top: 40px;
+    padding-bottom: 72px;
+    margin-top: 0;
+    background: linear-gradient(180deg, #061126 0%, #04101f 100%);
+  }
+  .mobile-field-gallery__intro {
+    padding-inline: max(var(--mobile-gutter), calc((100% - var(--mobile-content-max)) / 2));
+    margin-bottom: 16px;
+    padding-bottom: 0;
+  }
+  .mobile-field-gallery__eyebrow {
+    font-size: 11px;
+    letter-spacing: .13em;
+  }
+  .mobile-field-gallery__eyebrow span { color: #8fa8c2; font-variant-numeric: tabular-nums; }
+  .mobile-field-gallery__intro p {
+    margin-top: 6px;
+    font-size: 13px;
+    line-height: 1.45;
+    max-width: 35ch;
+  }
+  .mobile-field-gallery__hint { display: none; }
+  .mobile-field-grid {
+    grid-template-columns: 1.18fr .82fr;
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    height: clamp(310px, 92vw, 390px);
+    padding-inline: max(var(--mobile-gutter), calc((100% - var(--mobile-content-max)) / 2));
+  }
+  .mobile-field-grid .mobile-field-card--topografia { grid-column: 1; grid-row: 1 / 3; }
+  .mobile-field-grid .mobile-field-card--hidrometria { grid-column: 2; grid-row: 1; }
+  .mobile-field-grid .mobile-field-card--campo { grid-column: 2; grid-row: 2; }
+  .mobile-field-gallery__track .mobile-field-card { border-radius: 12px; }
+  .mobile-field-card::after {
+    inset: 38% 0 0;
+    background: linear-gradient(to bottom, transparent, rgba(2,7,16,.9));
+  }
+  .mobile-field-card__title,
+  .mobile-field-card > span {
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    font-size: 12px;
+    line-height: 1.15;
+    font-weight: 750;
+    overflow-wrap: anywhere;
+  }
+  .mobile-field-grid .mobile-field-card--topografia > span { font-size: 14px; }
+  .mobile-field-card--topografia img { object-position: 43% center; }
+  .mobile-field-card--hidrometria img { object-position: center 50%; }
+  .mobile-field-card--campo img { object-position: 56% center; }
+
+  /* --- WhatsApp flutuante: nunca cobrir conteúdo --- */
+  .whatsapp {
+    width: 48px;
+    height: 48px;
+    right: 14px;
+    bottom: calc(14px + env(safe-area-inset-bottom, 0px));
+    z-index: 40;
+  }
+  .whatsapp svg { width: 26px; height: 26px; }
+  #contato { padding-bottom: 96px; }
+
+  /* --- Formulário: sem zoom automático no iOS --- */
+  input, select, textarea { font-size: 16px; }
+  .contact-form .field { align-content: start; }
+
+  /* --- Eixo global: todas as seções no mesmo container --- */
+  .wrap,
+  .wrap.contact-grid {
+    width: var(--wrap);
+    margin-inline: auto;
+  }
+
+  /* --- Quem Somos: coluna única, texto respirando --- */
+  .about-grid,
+  .about-grid .section-title {
+    grid-template-columns: 1fr;
+  }
+
+  /* --- Títulos de seção: escala mobile consistente --- */
+  .section h2 {
+    font-size: clamp(1.7rem, 8vw, 2.4rem);
+    line-height: 1.06;
+  }
+  .section .lead {
+    font-size: .95rem;
+    line-height: 1.55;
+  }
+}
+/* Acessibilidade: labels e dicas do formulário precisam de contraste AA
+   sobre o fundo escuro (o --muted #4d5b69 falhava com 2.45:1). */
+html[data-theme="dark"] label,
+html[data-theme="dark"] .field-hint {
+  color: #9fb2c8;
 }

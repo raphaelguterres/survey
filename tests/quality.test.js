@@ -32,7 +32,7 @@ test('fase 2 adiciona vida visual sem scroll continuo', () => {
 });
 
 test('cards de atividades mantêm visual clean sem ícones', () => {
-  assert.match(css, /\.activities li::after,\s*\.activities summary::after/);
+  assert.match(css, /\.activities li::after \{\s*display: none;/);
   assert.match(css, /\.activities summary \{[\s\S]*padding-right: 0/);
 });
 
@@ -42,7 +42,7 @@ test('fase 3 inclui CTAs compactos e galeria mobile nativa', () => {
   assert.match(css, /\.hero-actions \.btn \{[\s\S]*min-height: 44px/);
   assert.match(css, /scroll-snap-type: x mandatory/);
   assert.match(css, /mobile-field-card|mobile-field-gallery/);
-  assert.match(html, /window\.innerWidth > 767/);
+  assert.match(html, /matchMedia\('\(min-width: 768px\)'\)/);
 });
 test('fase 4 usa grids editoriais mobile e CTAs com toque acessivel', () => {
   assert.match(html, /hero-mobile-grid/);
@@ -58,9 +58,13 @@ test('fase 4 usa grids editoriais mobile e CTAs com toque acessivel', () => {
   assert.match(css, /Hotfix visual: mobile hero/);
   assert.match(css, /\.hero,\s*\.hero-grid,\s*\.hero-mobile-grid \{[\s\S]*min-height: auto !important/);
   assert.match(css, /align-content: start/);
-});test('CTAs mobile respeitam colunas iguais do grid', () => {
-  assert.match(css, /Hotfix visual 2: hero actions aligned/);
-  assert.match(css, /grid-template-columns: repeat\(2, minmax\(0, 1fr\)\)/);
-  assert.match(css, /\.hero-actions \.btn\.primary,[\s\S]*width: 100% !important/);
-  assert.match(css, /min-width: 0 !important/);
+});test('fase 5: CTAs compactos com secundario discreto e eixo global', () => {
+  assert.match(css, /Auditoria sênior UI\/UX mobile/);
+  assert.match(css, /--control-height: 44px/);
+  assert.match(css, /\.hero-actions \.hero-action--primary \{[\s\S]*?max-width: 190px/);
+  assert.match(css, /\.hero-actions \.btn\.ghost\.hero-action--secondary,[\s\S]*?border-bottom: 1px solid/);
+  assert.match(css, /--mobile-content-max: 440px/);
+  assert.doesNotMatch(html, /tech-chip/);
+  assert.doesNotMatch(html, /Deslize para explorar/);
+  assert.match(html, /01<\/span> &mdash; Atua&ccedil;&atilde;o em campo/);
 });
