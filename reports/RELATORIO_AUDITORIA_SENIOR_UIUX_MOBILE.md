@@ -98,9 +98,10 @@ Sem mudanças estruturais — o header já atende a spec (sticky, 44px+ de toque
 
 ## Performance
 
-- **Lighthouse mobile (após):** Performance 79, Accessibility 100, Best Practices 100, SEO 100. CLS 0, TBT 0ms, FCP 1.2s.
+- **Lighthouse mobile na Vercel de produção (medição real, `survey-landing-ashy.vercel.app`):** **Performance 100, Accessibility 100, Best Practices 100, SEO 100. LCP 1.2s, FCP 1.0s, CLS 0, TBT 0ms, Speed Index 2.1s.**
 - **Best Practices: 96 → 100** — corrigido o 404 de favicon (`<link rel="icon" href="assets/survey-symbol-f.svg">`), único erro de console.
-- **Sobre a Performance 79 / LCP ~5.7s:** é artefato do ambiente local, não regressão de código. O detalhamento do LCP (`lcp-breakdown-insight`) soma apenas ~165ms (TTFB 60 + load delay 25 + load 4 + render 76); o número de 5.7s vem da simulação de throttling do Lighthouse sobre o `python -m http.server` (single-thread, lento). Em sessão anterior confirmou-se, via `git stash`, que o score é idêntico **com e sem** as mudanças. Recomenda-se medir em ambiente servido de verdade (ex.: Vercel) antes de qualquer decisão baseada nesse número.
+- **Otimização de LCP (3.0s → 1.2s):** os cards do mosaico (WebP via `<picture>`) e o `.desktop-photo-stack` (oculto no mobile) compartilham a classe `.photo-card`, cujas regras legadas `:first/nth-child` aplicavam os JPGs pesados de desktop (`hero-*.jpg`, ~650KB) como background — baixados no mobile mesmo sendo redundantes/invisíveis. Adicionado `background-image: none` para ambos os stacks dentro do `@media (max-width: 767px)`. Verificado em contexto Playwright limpo: **zero JPGs de hero requisitados no mobile** (só os 3 WebPs). Isso levou a Performance de 94 → **100** e o LCP de 3.0s → 1.2s.
+- **Nota sobre o Lighthouse local:** roda em ~79 / LCP ~5.7s por artefato do `python -m http.server` (single-thread); o breakdown real somava ~165ms. Sempre validar na Vercel — onde o número é 100.
 - Nenhuma biblioteca nova; motion pesado segue restrito ao desktop; imagens WebP com fallback, `loading="lazy"`, `decoding="async"`.
 
 ## Arquivos alterados
@@ -174,4 +175,4 @@ Nenhuma. Todo o CSS novo está dentro de `@media (max-width: 767px)`, exceto a c
 
 ## Recomendação de deploy
 
-Pronto para revisão humana. Mudanças commitadas na branch `agent/mobile-uiux-senior-audit`; **sem deploy, merge ou push** — aguardando autorização explícita.
+**Deployado em produção** (autorizado pelo usuário): merge fast-forward em `main`, push (`df3321e..bd020d4`, e perf `bd020d4..4b2a8c0`), deploy automático da Vercel confirmado no ar. Lighthouse de produção **100/100/100/100**. Sem pendências bloqueantes.
