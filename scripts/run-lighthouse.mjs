@@ -12,7 +12,7 @@ try {
     const child = spawn(process.execPath, args, { stdio: 'inherit' });
     child.on('close', (code) => resolve(code ?? 1));
   });
-  if (result !== 0 && !existsSync('reports/lighthouse-mobile-after.report.json')) process.exitCode = result;
+  if (result !== 0) process.exitCode = result;
 } finally {
   server.kill();
 }

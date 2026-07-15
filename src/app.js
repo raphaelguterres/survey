@@ -1,7 +1,6 @@
 const SELECTORS = { header: 'header', burger: '.burger', nav: '.links', themeButtons: '[data-theme-choice]', navLinks: '.links a', serviceToggle: '.service-toggle', serviceMenu: '.service-menu', revealElements: '.rv', contactForm: '#contact-form' };
 const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-const touchQuery = window.matchMedia('(pointer: coarse)');
-const motionDisabled = () => motionQuery.matches || touchQuery.matches;
+const motionDisabled = () => motionQuery.matches;
 
 function setMenuState(header, burger, open) {
   header?.classList.toggle('menu-open', open);
@@ -29,14 +28,26 @@ function initializeThemeControls(header, burger) {
 }
 
 function initializeNavigation(header, burger) {
+  if (!header) return;
   const toggle = document.querySelector(SELECTORS.serviceToggle);
   const serviceMenu = document.querySelector(SELECTORS.serviceMenu);
+  const navService = document.querySelector('.nav-service');
   burger?.addEventListener('click', () => setMenuState(header, burger, !header.classList.contains('menu-open')));
   toggle?.addEventListener('click', () => {
     const expanded = toggle.getAttribute('aria-expanded') === 'true';
     toggle.setAttribute('aria-expanded', String(!expanded));
     serviceMenu?.classList.toggle('is-open', !expanded);
   });
+  if (navService && toggle) {
+    navService.addEventListener('focusin', () => {
+      toggle.setAttribute('aria-expanded', 'true');
+    });
+    navService.addEventListener('focusout', (event) => {
+      if (!navService.contains(event.relatedTarget)) {
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
   document.querySelectorAll(SELECTORS.navLinks).forEach((link) => link.addEventListener('click', () => setMenuState(header, burger, false)));
   document.addEventListener('keydown', (event) => { if (event.key === 'Escape') setMenuState(header, burger, false); });
   document.addEventListener('pointerdown', (event) => {
@@ -57,7 +68,7 @@ function initializeHeaderState(header) {
 function initializeScrollCue() {
   const cue = document.querySelector('.scroll-cue');
   if (!cue) return;
-  const hide = () => cue.classList.add('.is-hidden');
+  const hide = () => cue.classList.add('is-hidden');
   window.addEventListener('scroll', hide, { passive: true, once: true });
 }
 
@@ -68,11 +79,16 @@ function initializeReveal() {
   elements.forEach((element) => observer.observe(element));
 }
 
+let accordionBusy = false;
+
 function initializeAccordions() {
   const items = [...document.querySelectorAll('.activities details')];
   items.forEach((item) => item.addEventListener('toggle', () => {
+    if (accordionBusy) return;
     if (!item.open) return;
+    accordionBusy = true;
     items.filter((other) => other !== item).forEach((other) => { other.open = false; });
+    accordionBusy = false;
   }));
 }
 
@@ -84,6 +100,7 @@ function initializeContactForm() {
   form.addEventListener('submit', (event) => {
     event.preventDefault();
     if (!form.checkValidity()) { form.reportValidity(); return; }
+    if (!status) return;
     button.disabled = true;
     button.textContent = 'Enviando...';
     status.textContent = 'Recebemos seus dados. Retornaremos em breve.';

@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#1378ff">
 <title>Survey Hydro | Topografia, Hidrometria e Meio Ambiente</title>
 <meta name="description" content="Topografia, hidrometria, batimetria, aerolevantamentos com drones, LiDAR, hidrologia e meio ambiente para estudos h&iacute;dricos.">
-<link rel="stylesheet" href="src/styles.css?v=mobile-v6">
+<link rel="stylesheet" href="src/styles.css?v=mobile-v5">
 </head>
 <body>
 <div class="topline">
@@ -67,6 +67,11 @@
 <div class="hero-actions">
 <a class="btn hero-action hero-action--primary primary" href="#contato"><span class="hero-action__surface">Solicitar proposta <span aria-hidden="true">&rarr;</span></span></a>
 <a class="btn hero-action hero-action--secondary ghost" href="#servicos"><span class="hero-action__surface">Ver atividades <span aria-hidden="true">&darr;</span></span></a>
+</div>
+<div class="tech-chips" aria-label="Especialidades">
+<span class="tech-chip"><i aria-hidden="true">&oplus;</i> Topografia e nivelamento</span>
+<span class="tech-chip"><i aria-hidden="true">&asymp;</i> Hidrometria e batimetria</span>
+<span class="tech-chip"><i aria-hidden="true">&bull;</i> Campo em ambiente h&iacute;drico</span>
 </div>
 <a class="scroll-cue" href="#sobre"><span aria-hidden="true">01</span> Explore <b aria-hidden="true">&darr;</b></a>
 </div>
@@ -250,7 +255,7 @@
 <script src="src/app.js">
 </script>
 <script>
-  if (window.innerWidth > 767 && window.matchMedia('(pointer: fine)').matches && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  if (window.matchMedia('(min-width: 768px)').matches && window.matchMedia('(pointer: fine)').matches && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     const desktopMotion = document.createElement('script');
     desktopMotion.src = 'assets/motion-enhancements.js';
     desktopMotion.defer = true;
