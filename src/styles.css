@@ -1155,6 +1155,20 @@ input:focus, select:focus, textarea:focus { border-color: #46b7ff; box-shadow: 0
   .mobile-field-card--topografia img { object-position: 43% center; }
   .mobile-field-card--hidrometria img { object-position: center 50%; }
   .mobile-field-card--campo img { object-position: 56% center; }
+  /* Performance: os cards do mosaico usam o WebP do <picture>, e o
+     desktop-photo-stack fica oculto no mobile. Os JPGs pesados de desktop
+     (de .photo-card:first/nth-child) não devem ser baixados no mobile —
+     economiza ~650KB e melhora o LCP. */
+  .mobile-field-gallery .photo-card,
+  .mobile-field-gallery .photo-card:first-child,
+  .mobile-field-gallery .photo-card:nth-child(2),
+  .mobile-field-gallery .photo-card:nth-child(3),
+  .desktop-photo-stack .photo-card,
+  .desktop-photo-stack .photo-card:first-child,
+  .desktop-photo-stack .photo-card:nth-child(2),
+  .desktop-photo-stack .photo-card:nth-child(3) {
+    background-image: none;
+  }
 
   /* --- WhatsApp flutuante: nunca cobrir conteúdo --- */
   .whatsapp {
