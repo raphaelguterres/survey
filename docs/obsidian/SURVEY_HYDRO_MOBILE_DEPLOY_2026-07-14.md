@@ -114,3 +114,14 @@ status: publicado
 - Hover preservado apenas com borda e sombra discretas.
 - Testes atualizados para proteger o visual sem ícones.
 - Validação: lint, typecheck, 5/5 testes e build aprovados.
+## Code Review e Correções (2026-07-15)
+
+- Branch: `agent/mobile-uiux-senior-audit` — commit `798c5ce`.
+- Review de alta profundidade via 7 agentes paralelos sobre o diff `main...HEAD`.
+- 10 bugs encontrados e corrigidos (7 confirmados, 3 plausíveis).
+- Bugs críticos: `classList.add('.is-hidden')` com ponto (scroll cue quebrado), indicadores +/− do accordion mortos por regra CSS tardia, `motionDisabled()` desligando animações em tablets com `pointer:coarse`.
+- Acessibilidade: `aria-expanded` desincronizado com `:focus-within` no submenu de navegação — corrigido com `focusin`/`focusout`.
+- CI: exit code do Lighthouse invertido com arquivo parcial — corrigido.
+- Manutenção: `!important` em hero-actions consolidado, `window.innerWidth` snapshot substituído por `matchMedia`, null guards adicionados em `initializeContactForm` e `initializeNavigation`, flag `accordionBusy` no accordion.
+- Validação: lint e typecheck aprovados.
+- Nota completa: `SURVEY_HYDRO_CODE_REVIEW_2026-07-15.md` no vault do Obsidian.
