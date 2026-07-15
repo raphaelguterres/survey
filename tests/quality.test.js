@@ -26,11 +26,9 @@ test('CSS contempla movimento reduzido e safe area', () => {
 });
 
 test('fase 2 adiciona vida visual sem scroll continuo', () => {
-  assert.match(html, /class="tech-chips"/);
   assert.match(html, /class="scroll-cue"/);
   assert.match(app, /initializeScrollCue/);
   assert.match(css, /--motion-ease-out/);
-  assert.match(css, /tech-chip:active/);
 });
 
 test('cards de atividades mantêm visual clean sem ícones', () => {

@@ -527,7 +527,6 @@ input:focus, select:focus, textarea:focus { border-color: #46b7ff; box-shadow: 0
   .mobile-field-gallery__hint { display: block; margin-top: 10px; color: #8fa8c2; font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; }
   .mobile-field-gallery__hint span { color: #62b8ff; }
   .mobile-field-gallery .photo-card { flex: 0 0 min(78vw, 300px); min-height: 0; aspect-ratio: 4 / 5; scroll-snap-align: start; border-radius: 12px; box-shadow: 0 10px 24px rgba(0,0,0,.2); }
-  .mobile-field-gallery .photo-card:first-of-type { grid-row: auto; min-height: 0; }
   .mobile-field-gallery .photo-card::after { z-index: 1; inset: 38% 0 0; background: linear-gradient(to bottom, transparent, rgba(0,0,0,.82)); }
   .mobile-field-gallery .photo-card span { z-index: 2; left: 16px; right: 16px; bottom: 16px; font-size: .92rem; line-height: 1.18; }
   .mobile-field-gallery { display: flex; flex-wrap: wrap; gap: 0; }
@@ -724,15 +723,15 @@ input:focus, select:focus, textarea:focus { border-color: #46b7ff; box-shadow: 0
     border-radius: var(--mobile-card-radius);
     box-shadow: 0 12px 26px rgba(0,0,0,.22);
   }
-  .mobile-field-card--topografia {
+  .mobile-field-grid .mobile-field-card--topografia {
     grid-column: 1;
     grid-row: 1 / 3;
   }
-  .mobile-field-card--hidrometria {
+  .mobile-field-grid .mobile-field-card--hidrometria {
     grid-column: 2;
     grid-row: 1;
   }
-  .mobile-field-card--campo {
+  .mobile-field-grid .mobile-field-card--campo {
     grid-column: 2;
     grid-row: 2;
   }
